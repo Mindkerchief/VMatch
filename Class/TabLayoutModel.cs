@@ -12,6 +12,7 @@ public class TabLayoutModel
     private String questionAnswer;
     private String problemTitle;
     private String problem;
+    private bool isFinished;
 
     public TabLayoutModel(string questionTitle, string question, 
         string questionAnswer, string problemTitle, string problem)
@@ -21,6 +22,7 @@ public class TabLayoutModel
         this.questionAnswer = questionAnswer;
         this.problemTitle = problemTitle;
         this.problem = problem;
+        this.IsFinished = false;
     }
 
     public string QuestionTitle
@@ -60,6 +62,19 @@ public class TabLayoutModel
         get
         {
             return problem;
+        }
+    }
+
+    public bool IsFinished
+    {
+        get
+        {
+            return isFinished;
+        }
+
+        set
+        {
+            isFinished = value;
         }
     }
 }

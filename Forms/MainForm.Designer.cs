@@ -28,6 +28,7 @@ partial class MainForm
     /// </summary>
     private void InitializeComponent()
     {
+        components = new System.ComponentModel.Container();
         tabControlQuestions = new TabControl();
         tabQuestion1 = new TabPage();
         tabQuestion2 = new TabPage();
@@ -45,6 +46,7 @@ partial class MainForm
         lblTimer = new Label();
         btnMinimize = new Button();
         btnClose = new Button();
+        timerMatchTime = new System.Windows.Forms.Timer(components);
         tabControlQuestions.SuspendLayout();
         pnlTitleBar.SuspendLayout();
         SuspendLayout();
@@ -202,6 +204,7 @@ partial class MainForm
         btnStartTimer.TabIndex = 7;
         btnStartTimer.Text = "START";
         btnStartTimer.UseVisualStyleBackColor = false;
+        btnStartTimer.Click += btnStartTimer_Click;
         // 
         // lblLiveTime
         // 
@@ -266,6 +269,11 @@ partial class MainForm
         btnClose.MouseEnter += btnClose_MouseEnter;
         btnClose.MouseLeave += btnClose_MouseLeave;
         // 
+        // timerMatchTime
+        // 
+        timerMatchTime.Interval = 1000;
+        timerMatchTime.Tick += timerMatchTime_Tick;
+        // 
         // MainForm
         // 
         AutoScaleDimensions = new SizeF(9F, 21F);
@@ -305,4 +313,5 @@ partial class MainForm
     private Label lblLiveTime;
     private Button btnStartTimer;
     private TabPage tabQuestion1;
+    private System.Windows.Forms.Timer timerMatchTime;
 }

@@ -36,6 +36,7 @@ partial class TabLayout
         lblSubmitTitle = new Label();
         lblQuestion = new Label();
         lblQuestionTitle = new Label();
+        lblSubmitted = new Label();
         pnlSubmission.SuspendLayout();
         SuspendLayout();
         // 
@@ -51,6 +52,7 @@ partial class TabLayout
         lblProblem.TabIndex = 11;
         lblProblem.Text = "Write a program that takes a list of couples and returns a randomly assigned table for a Valentine's Day dinner party.";
         lblProblem.TextAlign = ContentAlignment.MiddleCenter;
+        lblProblem.Visible = false;
         // 
         // lblProblemTitle
         // 
@@ -64,6 +66,7 @@ partial class TabLayout
         lblProblemTitle.TabIndex = 10;
         lblProblemTitle.Text = "Problem Title";
         lblProblemTitle.TextAlign = ContentAlignment.MiddleCenter;
+        lblProblemTitle.Visible = false;
         // 
         // pnlSubmission
         // 
@@ -91,6 +94,7 @@ partial class TabLayout
         btnSubmit.TabIndex = 8;
         btnSubmit.Text = "ENTER";
         btnSubmit.UseVisualStyleBackColor = false;
+        btnSubmit.Click += btnSubmit_Click;
         // 
         // txtBoxSubmit
         // 
@@ -142,11 +146,26 @@ partial class TabLayout
         lblQuestionTitle.Text = "Question Title";
         lblQuestionTitle.TextAlign = ContentAlignment.MiddleCenter;
         // 
+        // lblSubmitted
+        // 
+        lblSubmitted.Dock = DockStyle.Top;
+        lblSubmitted.Font = new Font("Nirmala UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        lblSubmitted.ForeColor = Color.White;
+        lblSubmitted.Location = new Point(0, 270);
+        lblSubmitted.Margin = new Padding(5, 0, 5, 0);
+        lblSubmitted.Name = "lblSubmitted";
+        lblSubmitted.Size = new Size(400, 70);
+        lblSubmitted.TabIndex = 12;
+        lblSubmitted.Text = "Submitted: ";
+        lblSubmitted.TextAlign = ContentAlignment.MiddleCenter;
+        lblSubmitted.Visible = false;
+        // 
         // TabLayout
         // 
         AutoScaleDimensions = new SizeF(9F, 21F);
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = Color.Maroon;
+        Controls.Add(lblSubmitted);
         Controls.Add(lblProblem);
         Controls.Add(lblProblemTitle);
         Controls.Add(pnlSubmission);
@@ -172,4 +191,5 @@ partial class TabLayout
     private Label lblSubmitTitle;
     private Label lblQuestion;
     private Label lblQuestionTitle;
+    private Label lblSubmitted;
 }
