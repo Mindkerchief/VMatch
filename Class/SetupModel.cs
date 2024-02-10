@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace VMatch.Class;
+﻿namespace VMatch.Class;
 internal class SetupModel
 {
     public List<TabLayoutModel> setupTabLayoutModel()
     {
+        // Initialize all the questions and answer here to populate the tabs
+        // Current TabControl Tabs are limited to 10 tabs
+        // Adding more sets of TabLayoutModel means adding more Tab in Tab Control
         List<TabLayoutModel> tabLayoutModels = new List<TabLayoutModel>();
 
         String[] questionTitle =

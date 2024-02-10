@@ -1,16 +1,13 @@
-using System.Collections;
-using System.Runtime.InteropServices;
 using System.Security.AccessControl;
 using VMatch.Class;
 using VMatch.Forms;
 
 namespace VMatch;
-
 public partial class MainForm : Form, ITabLayout
 {
     private List<TabLayoutModel> tabLayoutModels;
-    //private int hours = 2, minutes = 59, seconds = 60;
-    private int hours = 0, minutes = 00, seconds = 05;
+    private int hours = 2, minutes = 59, seconds = 60;
+    //private int hours = 0, minutes = 00, seconds = 05;
     private Point mouseOffset;
     private bool isMouseDown = false;
 
@@ -18,6 +15,7 @@ public partial class MainForm : Form, ITabLayout
     {
         InitializeComponent();
 
+        // Prevent the program from operation if there is directory error
         if (!checkDirectory())
         {
             btnStartTimer.Enabled = false;
@@ -34,7 +32,7 @@ public partial class MainForm : Form, ITabLayout
         {
             if (!Directory.Exists(directoryPath))
             {
-                // Create and restrict data access to directory
+                // Create and restrict access to directory
                 Directory.CreateDirectory(directoryPath);
                 DirectoryInfo directoryInfo = new DirectoryInfo(directoryPath);
                 DirectorySecurity directorySecurity = directoryInfo.GetAccessControl();
@@ -44,6 +42,7 @@ public partial class MainForm : Form, ITabLayout
                 directorySecurity.AddAccessRule(accessRule);
                 directoryInfo.SetAccessControl(directorySecurity);
 
+                // Create log file for events
                 if (!File.Exists(logPath))
                     File.Create(logPath).Close();
             }
@@ -65,6 +64,7 @@ public partial class MainForm : Form, ITabLayout
 
         if (startTimerMessage == DialogResult.OK)
         {
+            // Populate the Tab Controls with the custom tab layout
             foreach (TabPage tabPage in tabControlQuestions.TabPages)
             {
                 TabLayout tabLayout = new TabLayout(this, tabLayoutModels.ElementAt(tabPage.TabIndex));
@@ -74,6 +74,7 @@ public partial class MainForm : Form, ITabLayout
 
             logTime("Match Started Time: ", true);
 
+            // Perform some controls operation to for the user to interact to once the match begin
             btnMinimize.Visible = true;
             btnClose.Visible = true;
             btnStartTimer.Dispose();
@@ -87,6 +88,7 @@ public partial class MainForm : Form, ITabLayout
         {
             if (minutes == 00 && hours == 0)
             {
+                // If the Timer run out of time
                 timesUp();
                 return;
             }
@@ -111,6 +113,7 @@ public partial class MainForm : Form, ITabLayout
     private void timesUp()
     {
         timerMatchTime.Stop();
+        // Prevent the participant from interacting to the Tab Control
         tabControlQuestions.Enabled = false;
 
         MessageBox.Show("Congratulations on your hardwork." +
@@ -126,7 +129,7 @@ public partial class MainForm : Form, ITabLayout
             using (StreamWriter streamWriter = File.AppendText(logPath))
             {
                 if (useRealTime)
-                    streamWriter.WriteLine(subject + DateTime.Now.ToString("HH:mm:ss"));
+                    streamWriter.WriteLine(subject + DateTime.Now.ToString("hh:mm:ss tt"));
                 else
                     streamWriter.WriteLine(subject + $"{hours:00}:{minutes:00}:{seconds:00}".ToString());
             }
@@ -138,9 +141,10 @@ public partial class MainForm : Form, ITabLayout
         return lblLiveTime.Text;
     }
 
-    public bool isQuestionsFinished()
+    public bool isProblemsFinished()
     {
         bool isFinished = true;
+        // Since List is passed by reference, we scan all the passed TabLayoutModel changes
         foreach (TabLayoutModel tabLayoutModel in tabLayoutModels)
         {
             if (!tabLayoutModel.IsFinished)
@@ -152,6 +156,7 @@ public partial class MainForm : Form, ITabLayout
         return isFinished;
     }
 
+    // This is only called when the match ends so that the program can be easily closed
     public void attachClosingEvent()
     {
         btnClose.Click += btnClose_Click;
@@ -174,7 +179,7 @@ public partial class MainForm : Form, ITabLayout
         }
     }
 
-    // Border Tools Behavior
+    // Simulate border tools behavior
 
     private void btnMinimize_Click(object sender, EventArgs e)
     {
@@ -183,7 +188,7 @@ public partial class MainForm : Form, ITabLayout
 
     private void btnClose_Click(object sender, EventArgs e)
     {
-        Application.Exit();
+        Environment.Exit(0);
     }
 
     private void btnMinimize_MouseEnter(object sender, EventArgs e)
@@ -204,12 +209,6 @@ public partial class MainForm : Form, ITabLayout
     private void btnClose_MouseLeave(object sender, EventArgs e)
     {
         btnClose.BackColor = Color.Transparent;
-    }
-
-    private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
-    {
-        // Attach this after development stage to prevent the program from closing
-        e.Cancel = true;
     }
 
     // Simulate moving the windows by dragging the border
@@ -238,5 +237,11 @@ public partial class MainForm : Form, ITabLayout
         {
             isMouseDown = false;
         }
+    }
+
+    // Prevents the participants from closing the app manually
+    private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+    {
+        e.Cancel = true;
     }
 }

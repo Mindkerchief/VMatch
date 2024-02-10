@@ -72,7 +72,7 @@ partial class MainForm
         tabControlQuestions.Margin = new Padding(5, 6, 5, 6);
         tabControlQuestions.Name = "tabControlQuestions";
         tabControlQuestions.SelectedIndex = 0;
-        tabControlQuestions.Size = new Size(500, 360);
+        tabControlQuestions.Size = new Size(500, 310);
         tabControlQuestions.TabIndex = 0;
         // 
         // tabQuestion1
@@ -81,7 +81,7 @@ partial class MainForm
         tabQuestion1.Location = new Point(4, 34);
         tabQuestion1.Margin = new Padding(5, 6, 5, 6);
         tabQuestion1.Name = "tabQuestion1";
-        tabQuestion1.Size = new Size(492, 322);
+        tabQuestion1.Size = new Size(492, 272);
         tabQuestion1.TabIndex = 0;
         tabQuestion1.Text = "Question 1";
         // 
@@ -91,7 +91,7 @@ partial class MainForm
         tabQuestion2.Location = new Point(4, 34);
         tabQuestion2.Margin = new Padding(5, 6, 5, 6);
         tabQuestion2.Name = "tabQuestion2";
-        tabQuestion2.Size = new Size(492, 322);
+        tabQuestion2.Size = new Size(492, 272);
         tabQuestion2.TabIndex = 1;
         tabQuestion2.Text = "Question 2";
         // 
@@ -101,7 +101,7 @@ partial class MainForm
         tabQuestion3.Location = new Point(4, 34);
         tabQuestion3.Margin = new Padding(5, 6, 5, 6);
         tabQuestion3.Name = "tabQuestion3";
-        tabQuestion3.Size = new Size(492, 322);
+        tabQuestion3.Size = new Size(492, 272);
         tabQuestion3.TabIndex = 2;
         tabQuestion3.Text = "Question 3";
         // 
@@ -111,7 +111,7 @@ partial class MainForm
         tabQuestion4.Location = new Point(4, 34);
         tabQuestion4.Margin = new Padding(5, 6, 5, 6);
         tabQuestion4.Name = "tabQuestion4";
-        tabQuestion4.Size = new Size(492, 322);
+        tabQuestion4.Size = new Size(492, 272);
         tabQuestion4.TabIndex = 3;
         tabQuestion4.Text = "Question 4";
         // 
@@ -121,7 +121,7 @@ partial class MainForm
         tabQuestion5.Location = new Point(4, 34);
         tabQuestion5.Margin = new Padding(5, 6, 5, 6);
         tabQuestion5.Name = "tabQuestion5";
-        tabQuestion5.Size = new Size(492, 322);
+        tabQuestion5.Size = new Size(492, 272);
         tabQuestion5.TabIndex = 4;
         tabQuestion5.Text = "Question 5";
         // 
@@ -131,7 +131,7 @@ partial class MainForm
         tabQuestion6.Location = new Point(4, 34);
         tabQuestion6.Margin = new Padding(5, 6, 5, 6);
         tabQuestion6.Name = "tabQuestion6";
-        tabQuestion6.Size = new Size(492, 322);
+        tabQuestion6.Size = new Size(492, 272);
         tabQuestion6.TabIndex = 5;
         tabQuestion6.Text = "Question 6";
         // 
@@ -141,7 +141,7 @@ partial class MainForm
         tabQuestion7.Location = new Point(4, 34);
         tabQuestion7.Margin = new Padding(5, 6, 5, 6);
         tabQuestion7.Name = "tabQuestion7";
-        tabQuestion7.Size = new Size(492, 322);
+        tabQuestion7.Size = new Size(492, 272);
         tabQuestion7.TabIndex = 6;
         tabQuestion7.Text = "Question 7";
         // 
@@ -151,7 +151,7 @@ partial class MainForm
         tabQuestion8.Location = new Point(4, 34);
         tabQuestion8.Margin = new Padding(5, 6, 5, 6);
         tabQuestion8.Name = "tabQuestion8";
-        tabQuestion8.Size = new Size(492, 322);
+        tabQuestion8.Size = new Size(492, 272);
         tabQuestion8.TabIndex = 7;
         tabQuestion8.Text = "Question 8";
         // 
@@ -161,7 +161,7 @@ partial class MainForm
         tabQuestion9.Location = new Point(4, 34);
         tabQuestion9.Margin = new Padding(5, 6, 5, 6);
         tabQuestion9.Name = "tabQuestion9";
-        tabQuestion9.Size = new Size(492, 322);
+        tabQuestion9.Size = new Size(492, 272);
         tabQuestion9.TabIndex = 8;
         tabQuestion9.Text = "Question 9";
         // 
@@ -171,7 +171,7 @@ partial class MainForm
         tabQuestion10.Location = new Point(4, 34);
         tabQuestion10.Margin = new Padding(5, 6, 5, 6);
         tabQuestion10.Name = "tabQuestion10";
-        tabQuestion10.Size = new Size(492, 322);
+        tabQuestion10.Size = new Size(492, 272);
         tabQuestion10.TabIndex = 9;
         tabQuestion10.Text = "Question 10";
         // 
@@ -289,7 +289,7 @@ partial class MainForm
         // 
         AutoScaleDimensions = new SizeF(11F, 25F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(500, 400);
+        ClientSize = new Size(500, 350);
         Controls.Add(tabControlQuestions);
         Controls.Add(pnlTitleBar);
         Font = new Font("Nirmala UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);

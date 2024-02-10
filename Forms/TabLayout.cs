@@ -1,18 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Security.AccessControl;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using VMatch.Class;
-using static System.Windows.Forms.DataFormats;
+﻿using VMatch.Class;
 
 namespace VMatch.Forms;
-
 public partial class TabLayout : UserControl
 {
     private ITabLayout tabLayoutInterface;
@@ -21,9 +9,12 @@ public partial class TabLayout : UserControl
     public TabLayout(ITabLayout tabLayoutInterface, TabLayoutModel tabLayoutModel)
     {
         InitializeComponent();
+        // Take the overriden Interface reference
+        // As well as the TabLayoutModel that will populate this UserControl
         this.tabLayoutInterface = tabLayoutInterface;
         this.tabLayoutModel = tabLayoutModel;
 
+        // Set Controls Text based on the TabLayoutModel recieved
         lblQuestionTitle.Text = tabLayoutModel.QuestionTitle;
         lblQuestion.Text = tabLayoutModel.Question;
         lblProblemTitle.Text = tabLayoutModel.ProblemTitle;
@@ -32,16 +23,19 @@ public partial class TabLayout : UserControl
 
     private void btnSubmit_Click(object sender, EventArgs e)
     {
-        // Answer Submission
+        // Answer Submission Part
         if (btnSubmit.Text == "ENTER")
         {
             if (txtBoxSubmit.Text.ToUpperInvariant() == tabLayoutModel.QuestionAnswer)
             {
+                // If the answer id correct, remove the question labels
+                // Then shows the Problem labels
                 lblQuestionTitle.Dispose();
                 lblQuestion.Dispose();
                 lblProblemTitle.Visible = true;
                 lblProblem.Visible = true;
 
+                // Change the Text of the bottom controls to adapt to the requirements
                 txtBoxSubmit.Text = "";
                 lblSubmitTitle.Text = "Submit:";
                 btnSubmit.Text = "UPLOAD";
@@ -51,7 +45,7 @@ public partial class TabLayout : UserControl
             else
                 MessageBox.Show("Wrong Answer!", "Wrong", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
-        // File Submission
+        // File Submission Part
         else if (btnSubmit.Text == "UPLOAD")
         {
             try
@@ -60,17 +54,20 @@ public partial class TabLayout : UserControl
                 DialogResult dialogResult;
                 string targetDirectory;
 
+                // Kind of weird implementation but I dont want to mess with this yet
                 (dialogResult, uploadFileDialog, targetDirectory) = openFile();
 
                 if (dialogResult == DialogResult.Yes)
                 {
                     File.Copy(uploadFileDialog.FileName, targetDirectory);
-                    lblSubmitted.Text += tabLayoutInterface.getLiveTime();
+                    // Mark the problem as finished and log the event
                     tabLayoutModel.IsFinished = true;
                     tabLayoutInterface.logTime(tabLayoutModel.ProblemTitle + " Submitted Time: ", false);
 
+                    // Remove the problem controls then show a new message as Submitted
                     lblProblemTitle.Dispose();
                     lblProblem.Dispose();
+                    lblSubmitted.Text += tabLayoutInterface.getLiveTime();
                     lblSubmitted.Visible = true;
                     pnlSubmission.Dispose();
                 }
@@ -80,7 +77,8 @@ public partial class TabLayout : UserControl
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            if (tabLayoutInterface.isQuestionsFinished())
+            // Every upload, check if all the questions are answered
+            if (tabLayoutInterface.isProblemsFinished())
             {
                 tabLayoutInterface.logTime("Time Finished: ", true);
                 MessageBox.Show("Well done! With the teamwork you have,\nyou answered all the questions."
@@ -94,14 +92,16 @@ public partial class TabLayout : UserControl
     {
         OpenFileDialog uploadFileDialog = new OpenFileDialog();
         string targetDirectory = tabLayoutInterface.directoryPath;
-        tabLayoutInterface.checkDirectory();
 
         try
         {
+            tabLayoutInterface.checkDirectory();
+
             if (uploadFileDialog.ShowDialog() == DialogResult.OK)
             {
-                string fileName = Path.GetFileName(uploadFileDialog.FileName);
-                targetDirectory += fileName;
+                // Update targetDirectory of the file to copy
+                // By combining main directory and chosen file name
+                targetDirectory += Path.GetFileName(uploadFileDialog.FileName);
 
                 return (MessageBox.Show("Are you sure you want to upload this file " 
                     + uploadFileDialog.FileName.Split('\\') [uploadFileDialog.FileName.Split('\\').Length - 1]
