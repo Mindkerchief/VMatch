@@ -53,6 +53,7 @@ partial class MainForm
         // 
         // tabControlQuestions
         // 
+        tabControlQuestions.Appearance = TabAppearance.FlatButtons;
         tabControlQuestions.Controls.Add(tabQuestion1);
         tabControlQuestions.Controls.Add(tabQuestion2);
         tabControlQuestions.Controls.Add(tabQuestion3);
@@ -65,35 +66,32 @@ partial class MainForm
         tabControlQuestions.Controls.Add(tabQuestion10);
         tabControlQuestions.Cursor = Cursors.Hand;
         tabControlQuestions.Dock = DockStyle.Fill;
+        tabControlQuestions.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
         tabControlQuestions.ItemSize = new Size(69, 30);
-        tabControlQuestions.Location = new Point(0, 42);
-        tabControlQuestions.Margin = new Padding(4, 5, 4, 5);
+        tabControlQuestions.Location = new Point(0, 40);
+        tabControlQuestions.Margin = new Padding(5, 6, 5, 6);
         tabControlQuestions.Name = "tabControlQuestions";
         tabControlQuestions.SelectedIndex = 0;
-        tabControlQuestions.Size = new Size(400, 358);
+        tabControlQuestions.Size = new Size(500, 360);
         tabControlQuestions.TabIndex = 0;
         // 
         // tabQuestion1
         // 
         tabQuestion1.BackColor = Color.Maroon;
-        tabQuestion1.Font = new Font("Segoe UI", 9F);
         tabQuestion1.Location = new Point(4, 34);
-        tabQuestion1.Margin = new Padding(4, 5, 4, 5);
+        tabQuestion1.Margin = new Padding(5, 6, 5, 6);
         tabQuestion1.Name = "tabQuestion1";
-        tabQuestion1.Padding = new Padding(10);
-        tabQuestion1.Size = new Size(392, 320);
+        tabQuestion1.Size = new Size(492, 322);
         tabQuestion1.TabIndex = 0;
         tabQuestion1.Text = "Question 1";
         // 
         // tabQuestion2
         // 
         tabQuestion2.BackColor = Color.Maroon;
-        tabQuestion2.Font = new Font("Segoe UI", 9F);
         tabQuestion2.Location = new Point(4, 34);
-        tabQuestion2.Margin = new Padding(4, 5, 4, 5);
+        tabQuestion2.Margin = new Padding(5, 6, 5, 6);
         tabQuestion2.Name = "tabQuestion2";
-        tabQuestion2.Padding = new Padding(4, 5, 4, 5);
-        tabQuestion2.Size = new Size(392, 320);
+        tabQuestion2.Size = new Size(492, 322);
         tabQuestion2.TabIndex = 1;
         tabQuestion2.Text = "Question 2";
         // 
@@ -101,9 +99,9 @@ partial class MainForm
         // 
         tabQuestion3.BackColor = Color.Maroon;
         tabQuestion3.Location = new Point(4, 34);
-        tabQuestion3.Margin = new Padding(4, 5, 4, 5);
+        tabQuestion3.Margin = new Padding(5, 6, 5, 6);
         tabQuestion3.Name = "tabQuestion3";
-        tabQuestion3.Size = new Size(392, 320);
+        tabQuestion3.Size = new Size(492, 322);
         tabQuestion3.TabIndex = 2;
         tabQuestion3.Text = "Question 3";
         // 
@@ -111,9 +109,9 @@ partial class MainForm
         // 
         tabQuestion4.BackColor = Color.Maroon;
         tabQuestion4.Location = new Point(4, 34);
-        tabQuestion4.Margin = new Padding(4, 5, 4, 5);
+        tabQuestion4.Margin = new Padding(5, 6, 5, 6);
         tabQuestion4.Name = "tabQuestion4";
-        tabQuestion4.Size = new Size(392, 320);
+        tabQuestion4.Size = new Size(492, 322);
         tabQuestion4.TabIndex = 3;
         tabQuestion4.Text = "Question 4";
         // 
@@ -121,9 +119,9 @@ partial class MainForm
         // 
         tabQuestion5.BackColor = Color.Maroon;
         tabQuestion5.Location = new Point(4, 34);
-        tabQuestion5.Margin = new Padding(4, 5, 4, 5);
+        tabQuestion5.Margin = new Padding(5, 6, 5, 6);
         tabQuestion5.Name = "tabQuestion5";
-        tabQuestion5.Size = new Size(392, 320);
+        tabQuestion5.Size = new Size(492, 322);
         tabQuestion5.TabIndex = 4;
         tabQuestion5.Text = "Question 5";
         // 
@@ -131,9 +129,9 @@ partial class MainForm
         // 
         tabQuestion6.BackColor = Color.Maroon;
         tabQuestion6.Location = new Point(4, 34);
-        tabQuestion6.Margin = new Padding(4, 5, 4, 5);
+        tabQuestion6.Margin = new Padding(5, 6, 5, 6);
         tabQuestion6.Name = "tabQuestion6";
-        tabQuestion6.Size = new Size(392, 320);
+        tabQuestion6.Size = new Size(492, 322);
         tabQuestion6.TabIndex = 5;
         tabQuestion6.Text = "Question 6";
         // 
@@ -141,9 +139,9 @@ partial class MainForm
         // 
         tabQuestion7.BackColor = Color.Maroon;
         tabQuestion7.Location = new Point(4, 34);
-        tabQuestion7.Margin = new Padding(4, 5, 4, 5);
+        tabQuestion7.Margin = new Padding(5, 6, 5, 6);
         tabQuestion7.Name = "tabQuestion7";
-        tabQuestion7.Size = new Size(392, 320);
+        tabQuestion7.Size = new Size(492, 322);
         tabQuestion7.TabIndex = 6;
         tabQuestion7.Text = "Question 7";
         // 
@@ -151,9 +149,9 @@ partial class MainForm
         // 
         tabQuestion8.BackColor = Color.Maroon;
         tabQuestion8.Location = new Point(4, 34);
-        tabQuestion8.Margin = new Padding(4, 5, 4, 5);
+        tabQuestion8.Margin = new Padding(5, 6, 5, 6);
         tabQuestion8.Name = "tabQuestion8";
-        tabQuestion8.Size = new Size(392, 320);
+        tabQuestion8.Size = new Size(492, 322);
         tabQuestion8.TabIndex = 7;
         tabQuestion8.Text = "Question 8";
         // 
@@ -161,9 +159,9 @@ partial class MainForm
         // 
         tabQuestion9.BackColor = Color.Maroon;
         tabQuestion9.Location = new Point(4, 34);
-        tabQuestion9.Margin = new Padding(4, 5, 4, 5);
+        tabQuestion9.Margin = new Padding(5, 6, 5, 6);
         tabQuestion9.Name = "tabQuestion9";
-        tabQuestion9.Size = new Size(392, 320);
+        tabQuestion9.Size = new Size(492, 322);
         tabQuestion9.TabIndex = 8;
         tabQuestion9.Text = "Question 9";
         // 
@@ -171,9 +169,9 @@ partial class MainForm
         // 
         tabQuestion10.BackColor = Color.Maroon;
         tabQuestion10.Location = new Point(4, 34);
-        tabQuestion10.Margin = new Padding(4, 5, 4, 5);
+        tabQuestion10.Margin = new Padding(5, 6, 5, 6);
         tabQuestion10.Name = "tabQuestion10";
-        tabQuestion10.Size = new Size(392, 320);
+        tabQuestion10.Size = new Size(492, 322);
         tabQuestion10.TabIndex = 9;
         tabQuestion10.Text = "Question 10";
         // 
@@ -187,21 +185,28 @@ partial class MainForm
         pnlTitleBar.Controls.Add(btnClose);
         pnlTitleBar.Dock = DockStyle.Top;
         pnlTitleBar.Location = new Point(0, 0);
-        pnlTitleBar.Margin = new Padding(4, 5, 4, 5);
+        pnlTitleBar.Margin = new Padding(5, 6, 5, 6);
         pnlTitleBar.Name = "pnlTitleBar";
-        pnlTitleBar.Size = new Size(400, 42);
+        pnlTitleBar.Size = new Size(500, 40);
         pnlTitleBar.TabIndex = 0;
+        pnlTitleBar.MouseDown += pnlTitleBar_MouseDown;
+        pnlTitleBar.MouseMove += pnlTitleBar_MouseMove;
+        pnlTitleBar.MouseUp += pnlTitleBar_MouseUp;
         // 
         // btnStartTimer
         // 
         btnStartTimer.AutoSize = true;
+        btnStartTimer.BackColor = Color.DarkGoldenrod;
         btnStartTimer.Cursor = Cursors.Hand;
-        btnStartTimer.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        btnStartTimer.FlatAppearance.BorderSize = 0;
+        btnStartTimer.FlatStyle = FlatStyle.Flat;
+        btnStartTimer.Font = new Font("Nirmala UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
         btnStartTimer.ForeColor = Color.White;
-        btnStartTimer.Location = new Point(208, 6);
+        btnStartTimer.Location = new Point(426, 4);
+        btnStartTimer.Margin = new Padding(4);
         btnStartTimer.Name = "btnStartTimer";
-        btnStartTimer.Size = new Size(75, 33);
-        btnStartTimer.TabIndex = 7;
+        btnStartTimer.Size = new Size(70, 30);
+        btnStartTimer.TabIndex = 1;
         btnStartTimer.Text = "START";
         btnStartTimer.UseVisualStyleBackColor = false;
         btnStartTimer.Click += btnStartTimer_Click;
@@ -211,61 +216,67 @@ partial class MainForm
         lblLiveTime.AutoSize = true;
         lblLiveTime.Font = new Font("Nirmala UI", 18F, FontStyle.Bold);
         lblLiveTime.ForeColor = Color.White;
-        lblLiveTime.Location = new Point(82, 5);
-        lblLiveTime.Margin = new Padding(4, 0, 4, 0);
+        lblLiveTime.Location = new Point(72, 4);
+        lblLiveTime.Margin = new Padding(5, 0, 5, 0);
         lblLiveTime.Name = "lblLiveTime";
         lblLiveTime.Size = new Size(112, 32);
-        lblLiveTime.TabIndex = 2;
+        lblLiveTime.TabIndex = 0;
         lblLiveTime.Text = "03:00:00";
         lblLiveTime.TextAlign = ContentAlignment.MiddleCenter;
         // 
         // lblTimer
         // 
         lblTimer.AutoSize = true;
-        lblTimer.Font = new Font("Nirmala UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        lblTimer.Dock = DockStyle.Left;
+        lblTimer.Font = new Font("Nirmala UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
         lblTimer.ForeColor = Color.White;
-        lblTimer.Location = new Point(0, 9);
-        lblTimer.Margin = new Padding(4, 0, 4, 0);
+        lblTimer.Location = new Point(0, 0);
+        lblTimer.Margin = new Padding(5, 0, 5, 0);
         lblTimer.Name = "lblTimer";
-        lblTimer.Padding = new Padding(10, 0, 0, 0);
-        lblTimer.Size = new Size(89, 25);
-        lblTimer.TabIndex = 1;
+        lblTimer.Padding = new Padding(12, 10, 0, 0);
+        lblTimer.Size = new Size(78, 31);
+        lblTimer.TabIndex = 0;
         lblTimer.Text = "TIMER :";
         lblTimer.TextAlign = ContentAlignment.MiddleCenter;
         // 
         // btnMinimize
         // 
         btnMinimize.BackColor = Color.Transparent;
+        btnMinimize.BackgroundImage = Properties.Resources.icon_minimize;
+        btnMinimize.BackgroundImageLayout = ImageLayout.Zoom;
         btnMinimize.Cursor = Cursors.Hand;
         btnMinimize.Dock = DockStyle.Right;
         btnMinimize.FlatAppearance.BorderSize = 0;
         btnMinimize.FlatStyle = FlatStyle.Flat;
         btnMinimize.ForeColor = SystemColors.Control;
-        btnMinimize.Image = Properties.Resources.icons_minimize;
-        btnMinimize.Location = new Point(294, 0);
-        btnMinimize.Margin = new Padding(4, 5, 4, 5);
+        btnMinimize.Location = new Point(420, 0);
+        btnMinimize.Margin = new Padding(5, 6, 5, 6);
         btnMinimize.Name = "btnMinimize";
-        btnMinimize.Size = new Size(53, 42);
-        btnMinimize.TabIndex = 0;
+        btnMinimize.Size = new Size(40, 40);
+        btnMinimize.TabIndex = 2;
         btnMinimize.UseVisualStyleBackColor = false;
+        btnMinimize.Visible = false;
         btnMinimize.Click += btnMinimize_Click;
+        btnMinimize.MouseEnter += btnMinimize_MouseEnter;
+        btnMinimize.MouseLeave += btnMinimize_MouseLeave;
         // 
         // btnClose
         // 
         btnClose.BackColor = Color.Transparent;
+        btnClose.BackgroundImage = Properties.Resources.icon_close;
+        btnClose.BackgroundImageLayout = ImageLayout.Zoom;
         btnClose.Cursor = Cursors.Hand;
         btnClose.Dock = DockStyle.Right;
         btnClose.FlatAppearance.BorderSize = 0;
         btnClose.FlatStyle = FlatStyle.Flat;
         btnClose.ForeColor = SystemColors.Control;
-        btnClose.Image = Properties.Resources.icons_close;
-        btnClose.Location = new Point(347, 0);
-        btnClose.Margin = new Padding(4, 5, 4, 5);
+        btnClose.Location = new Point(460, 0);
+        btnClose.Margin = new Padding(5, 6, 5, 6);
         btnClose.Name = "btnClose";
-        btnClose.Size = new Size(53, 42);
-        btnClose.TabIndex = 0;
+        btnClose.Size = new Size(40, 40);
+        btnClose.TabIndex = 3;
         btnClose.UseVisualStyleBackColor = false;
-        btnClose.Click += btnClose_Click;
+        btnClose.Visible = false;
         btnClose.MouseEnter += btnClose_MouseEnter;
         btnClose.MouseLeave += btnClose_MouseLeave;
         // 
@@ -276,18 +287,18 @@ partial class MainForm
         // 
         // MainForm
         // 
-        AutoScaleDimensions = new SizeF(9F, 21F);
+        AutoScaleDimensions = new SizeF(11F, 25F);
         AutoScaleMode = AutoScaleMode.Font;
-        BackColor = Color.Maroon;
-        ClientSize = new Size(400, 400);
+        ClientSize = new Size(500, 400);
         Controls.Add(tabControlQuestions);
         Controls.Add(pnlTitleBar);
-        Font = new Font("Nirmala UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        Font = new Font("Nirmala UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
         FormBorderStyle = FormBorderStyle.None;
-        Margin = new Padding(4, 5, 4, 5);
+        Margin = new Padding(5, 6, 5, 6);
         Name = "MainForm";
         StartPosition = FormStartPosition.CenterScreen;
         Text = "Form1";
+        FormClosing += MainForm_FormClosing;
         tabControlQuestions.ResumeLayout(false);
         pnlTitleBar.ResumeLayout(false);
         pnlTitleBar.PerformLayout();

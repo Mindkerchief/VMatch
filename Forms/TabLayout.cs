@@ -12,6 +12,7 @@ using VMatch.Class;
 using static System.Windows.Forms.DataFormats;
 
 namespace VMatch.Forms;
+
 public partial class TabLayout : UserControl
 {
     private ITabLayout tabLayoutInterface;
@@ -25,12 +26,13 @@ public partial class TabLayout : UserControl
 
         lblQuestionTitle.Text = tabLayoutModel.QuestionTitle;
         lblQuestion.Text = tabLayoutModel.Question;
-        lblProblemTitle.Text = tabLayoutModel.Problem;
+        lblProblemTitle.Text = tabLayoutModel.ProblemTitle;
         lblProblem.Text = tabLayoutModel.Problem;
     }
 
     private void btnSubmit_Click(object sender, EventArgs e)
     {
+        // Answer Submission
         if (btnSubmit.Text == "ENTER")
         {
             if (txtBoxSubmit.Text.ToUpperInvariant() == tabLayoutModel.QuestionAnswer)
@@ -40,12 +42,16 @@ public partial class TabLayout : UserControl
                 lblProblemTitle.Visible = true;
                 lblProblem.Visible = true;
 
-                lblSubmitTitle.Text = "FILE";
+                txtBoxSubmit.Text = "";
+                lblSubmitTitle.Text = "Submit:";
                 btnSubmit.Text = "UPLOAD";
+
+                submitTime(tabLayoutModel.QuestionTitle + " Answer Time");
             }
             else
                 MessageBox.Show("Wrong Answer!", "Wrong", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
+        // File Submission
         else if (btnSubmit.Text == "UPLOAD")
         {
             try
@@ -60,14 +66,15 @@ public partial class TabLayout : UserControl
                 {
                     File.Copy(uploadFileDialog.FileName, targetDirectory);
                     lblSubmitted.Text += tabLayoutInterface.getLiveTime();
-                    submitTime(tabLayoutModel.QuestionTitle);
+                    tabLayoutModel.IsFinished = true;
+                    submitTime(tabLayoutModel.ProblemTitle + " Submitted Time: ");
 
-                    lblQuestionTitle.Visible = false;
-                    lblQuestion.Visible = false;
+                    lblProblemTitle.Dispose();
+                    lblProblem.Dispose();
                     lblSubmitted.Visible = true;
-                    pnlSubmission.Visible = false;
+                    pnlSubmission.Dispose();
                 }
-            }
+            }   
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -75,15 +82,19 @@ public partial class TabLayout : UserControl
 
             if (tabLayoutInterface.isQuestionsFinished())
             {
-                submitTime("Time Finished");
+                submitTime("Time Finished: ");
+                MessageBox.Show("Well done! With the teamwork you have,\nyou answered all the questions."
+                    + "\nThank you for joining");
+                tabLayoutInterface.attachClosingEvent();
             }
         }
     }
 
-    public static (DialogResult, OpenFileDialog, string) submitFile()
+    private (DialogResult, OpenFileDialog, string) submitFile()
     {
         OpenFileDialog uploadFileDialog = new OpenFileDialog();
         string targetDirectory = "";
+
         try
         {
             if (uploadFileDialog.ShowDialog() == DialogResult.OK)
@@ -106,39 +117,62 @@ public partial class TabLayout : UserControl
                 string fileName = Path.GetFileName(uploadFileDialog.FileName);
                 targetDirectory += fileName;
 
-                return (MessageBox.Show("Are you sure you want to upload this file " + uploadFileDialog.FileName.Split('\\')[uploadFileDialog.FileName.Split('\\').Length - 1] + " ?", "Submit", MessageBoxButtons.YesNo, MessageBoxIcon.Question), uploadFileDialog, targetDirectory);
+                return (MessageBox.Show("Are you sure you want to upload this file " 
+                    + uploadFileDialog.FileName.Split('\\') [uploadFileDialog.FileName.Split('\\').Length - 1]
+                    + " ?", "Submit", MessageBoxButtons.YesNo, MessageBoxIcon.Question), 
+                    uploadFileDialog, targetDirectory);
             }
 
-            return (MessageBox.Show("There is an error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error), uploadFileDialog, targetDirectory);
+            return (MessageBox.Show("There is an error", "Error", 
+                MessageBoxButtons.OK, MessageBoxIcon.Error), uploadFileDialog, targetDirectory);
         }
         catch (Exception ex)
         {
-            return (MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error), uploadFileDialog, targetDirectory);
+            return (MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error), 
+                uploadFileDialog, targetDirectory);
         }
     }
 
-    public void submitTime(string subject)
+    private void submitTime(string subject)
+    {
+        if (checkDirectory())
+        {
+            string targetDirectory = Path.Combine(@"~\answers\time.txt");
+
+            using (StreamWriter streamWriter = File.AppendText(targetDirectory))
+            {
+                streamWriter.WriteLine(subject + tabLayoutInterface.getLiveTime());
+            }
+        }
+    }
+
+    private bool checkDirectory()
     {
         try
         {
-            string path = Path.Combine(@"~\answers\");
+            string targetDirectory = Path.Combine(@"~\answers\");
 
-            if (!Directory.Exists(path))
-                Directory.CreateDirectory(path);
+            if (!Directory.Exists(targetDirectory))
+                Directory.CreateDirectory(targetDirectory);
 
-            path = Path.Combine(@"~\answers\time.txt");
+            targetDirectory = Path.Combine(@"~\answers\time.txt");
 
-            if (!File.Exists(path))
-                File.Create(path).Close();
-
-            using (StreamWriter sw = File.AppendText(path))
-            {
-                sw.WriteLine($"{subject} Submitted time: {tabLayoutInterface.getLiveTime}");
-            }
+            if (!File.Exists(targetDirectory))
+                File.Create(targetDirectory).Close();
         }
-        catch (Exception ex)
+        catch (Exception ex) 
         {
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        return true;
+    }
+
+    private void txtBoxSubmit_KeyDown(object sender, KeyEventArgs e)
+    {
+        if (e.KeyCode == Keys.Enter)
+        {
+            btnSubmit.PerformClick();
         }
     }
 }

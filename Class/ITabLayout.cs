@@ -9,4 +9,5 @@ public interface ITabLayout
 {
     bool isQuestionsFinished();
     string getLiveTime();
+    void attachClosingEvent();
 }

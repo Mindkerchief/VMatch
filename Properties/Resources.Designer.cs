@@ -63,9 +63,9 @@ namespace VMatch.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icons_close {
+        internal static System.Drawing.Bitmap icon_close {
             get {
-                object obj = ResourceManager.GetObject("icons-close", resourceCulture);
+                object obj = ResourceManager.GetObject("icon_close", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,29 +73,9 @@ namespace VMatch.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icons_minimize {
+        internal static System.Drawing.Bitmap icon_minimize {
             get {
-                object obj = ResourceManager.GetObject("icons-minimize", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap icons_restore_down {
-            get {
-                object obj = ResourceManager.GetObject("icons-restore-down", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap icons_square {
-            get {
-                object obj = ResourceManager.GetObject("icons-square", resourceCulture);
+                object obj = ResourceManager.GetObject("icon_minimize", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

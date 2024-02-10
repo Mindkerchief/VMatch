@@ -9,20 +9,28 @@ public partial class MainForm : Form, ITabLayout
 {
     private List<TabLayoutModel> tabLayoutModels;
     private int hours = 2, minutes = 59, seconds = 60;
+    //private int hours = 0, minutes = 00, seconds = 05;
+    private Point mouseOffset;
+    private bool isMouseDown = false;
 
     public MainForm()
     {
         InitializeComponent();
+        tabLayoutModels = new SetupModel().setupTabLayoutModel();
+    }
+
+    private void createDirectory()
+    {
+
     }
 
     private void btnStartTimer_Click(object sender, EventArgs e)
     {
-        DialogResult startTimerMessage = MessageBox.Show("Valentine Match will now begin", "Start?", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+        DialogResult startTimerMessage = MessageBox.Show("The Match will now begin", "Start?",
+            MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
         if (startTimerMessage == DialogResult.OK)
         {
-            SetupModel setupModel = new SetupModel();
-            tabLayoutModels = setupModel.setupTabLayoutModel();
-
             foreach (TabPage tabPage in tabControlQuestions.TabPages)
             {
                 TabLayout tabLayout = new TabLayout(this, tabLayoutModels.ElementAt(tabPage.TabIndex));
@@ -30,6 +38,8 @@ public partial class MainForm : Form, ITabLayout
                 tabPage.Controls.Add(tabLayout);
             }
 
+            btnMinimize.Visible = true;
+            btnClose.Visible = true;
             btnStartTimer.Dispose();
             timerMatchTime.Start();
         }
@@ -37,13 +47,13 @@ public partial class MainForm : Form, ITabLayout
 
     private void timerMatchTime_Tick(object sender, EventArgs e)
     {
-        lblLiveTime.Text = DateTime.Now.ToString("HH:mm:ss");
-
         if (seconds == 0)
         {
             if (minutes == 00 && hours == 0)
             {
-                MessageBox.Show("Times Up!");
+                timerMatchTime.Stop();
+                MessageBox.Show("Congratulations on your hardwork.\nUnfortunately the time is already up.\nThank You!");
+                tabControlQuestions.Enabled = false;
                 return;
             }
             else if (minutes == 0)
@@ -64,6 +74,33 @@ public partial class MainForm : Form, ITabLayout
         lblLiveTime.Text = $"{hours:00}:{minutes:00}:{seconds:00}";
     }
 
+    public string getLiveTime()
+    {
+        return lblLiveTime.Text = $"{hours:00}:{minutes:00}:{seconds:00}".ToString(); ;
+    }
+
+    public bool isQuestionsFinished()
+    {
+        bool isFinished = true;
+        foreach (TabLayoutModel tabLayoutModel in tabLayoutModels)
+        {
+            if (!tabLayoutModel.IsFinished)
+            {
+                isFinished = false;
+                break;
+            }
+        }
+        return isFinished;
+    }
+
+    public void attachClosingEvent()
+    {
+        btnClose.Click += btnClose_Click;
+        timerMatchTime.Dispose();
+    }
+
+    // Border Tools Behavior
+
     private void btnMinimize_Click(object sender, EventArgs e)
     {
         this.WindowState = FormWindowState.Minimized;
@@ -74,37 +111,57 @@ public partial class MainForm : Form, ITabLayout
         Application.Exit();
     }
 
+    private void btnMinimize_MouseEnter(object sender, EventArgs e)
+    {
+        btnMinimize.BackColor = Color.DarkGoldenrod;
+    }
+
+    private void btnMinimize_MouseLeave(object sender, EventArgs e)
+    {
+        btnMinimize.BackColor = Color.Transparent;
+    }
+
+    private void btnClose_MouseEnter(object sender, EventArgs e)
+    {
+        btnClose.BackColor = Color.MidnightBlue;
+    }
+
     private void btnClose_MouseLeave(object sender, EventArgs e)
     {
         btnClose.BackColor = Color.Transparent;
     }
 
-    private void btnClose_MouseEnter(object sender, EventArgs e)
-    {
-        btnClose.BackColor = Color.Blue;
-    }
-
     private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
     {
+        // Attach this after development stage to prevent the program from closing
         e.Cancel = true;
     }
 
-    public string getLiveTime()
+    // Simulate moving the windows by dragging the border
+    private void pnlTitleBar_MouseDown(object sender, MouseEventArgs e)
     {
-        return $"{hours:00}:{minutes:00}:{seconds:00}";
+        if (e.Button == MouseButtons.Left)
+        {
+            isMouseDown = true;
+            mouseOffset = new Point(-e.X, -e.Y);
+        }
     }
 
-    public bool isQuestionsFinished()
+    private void pnlTitleBar_MouseMove(object sender, MouseEventArgs e)
     {
-        bool isFinised = true;
-        foreach (TabLayoutModel tabLayoutModel in tabLayoutModels)
+        if (isMouseDown)
         {
-            if (!tabLayoutModel.IsFinished)
-            {
-                isFinised = false;
-                break;
-            }
+            Point mousePosition = Control.MousePosition;
+            mousePosition.Offset(mouseOffset.X, mouseOffset.Y);
+            Location = mousePosition;
         }
-        return isFinised;
+    }
+
+    private void pnlTitleBar_MouseUp(object sender, MouseEventArgs e)
+    {
+        if (e.Button == MouseButtons.Left)
+        {
+            isMouseDown = false;
+        }
     }
 }
