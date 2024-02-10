@@ -29,6 +29,7 @@ partial class MainForm
     private void InitializeComponent()
     {
         components = new System.ComponentModel.Container();
+        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
         tabControlQuestions = new TabControl();
         tabQuestion1 = new TabPage();
         tabQuestion2 = new TabPage();
@@ -294,6 +295,7 @@ partial class MainForm
         Controls.Add(pnlTitleBar);
         Font = new Font("Nirmala UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
         FormBorderStyle = FormBorderStyle.None;
+        Icon = (Icon)resources.GetObject("$this.Icon");
         Margin = new Padding(5, 6, 5, 6);
         Name = "MainForm";
         StartPosition = FormStartPosition.CenterScreen;

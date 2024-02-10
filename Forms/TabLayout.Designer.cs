@@ -28,8 +28,6 @@ partial class TabLayout
     /// </summary>
     private void InitializeComponent()
     {
-        lblProblem = new Label();
-        lblProblemTitle = new Label();
         pnlSubmission = new Panel();
         btnSubmit = new Button();
         txtBoxSubmit = new TextBox();
@@ -40,34 +38,6 @@ partial class TabLayout
         pnlSubmission.SuspendLayout();
         SuspendLayout();
         // 
-        // lblProblem
-        // 
-        lblProblem.Dock = DockStyle.Top;
-        lblProblem.Font = new Font("Nirmala UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        lblProblem.ForeColor = Color.White;
-        lblProblem.Location = new Point(10, 213);
-        lblProblem.Margin = new Padding(6, 0, 6, 0);
-        lblProblem.Name = "lblProblem";
-        lblProblem.Size = new Size(472, 119);
-        lblProblem.TabIndex = 0;
-        lblProblem.Text = "Write a program that takes a list of couples and returns a randomly assigned table for a Valentine's Day dinner party.";
-        lblProblem.TextAlign = ContentAlignment.TopCenter;
-        lblProblem.Visible = false;
-        // 
-        // lblProblemTitle
-        // 
-        lblProblemTitle.Dock = DockStyle.Top;
-        lblProblemTitle.Font = new Font("Nirmala UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        lblProblemTitle.ForeColor = Color.White;
-        lblProblemTitle.Location = new Point(10, 171);
-        lblProblemTitle.Margin = new Padding(6, 0, 6, 0);
-        lblProblemTitle.Name = "lblProblemTitle";
-        lblProblemTitle.Size = new Size(472, 42);
-        lblProblemTitle.TabIndex = 0;
-        lblProblemTitle.Text = "Problem Title";
-        lblProblemTitle.TextAlign = ContentAlignment.MiddleCenter;
-        lblProblemTitle.Visible = false;
-        // 
         // pnlSubmission
         // 
         pnlSubmission.AutoSize = true;
@@ -75,7 +45,7 @@ partial class TabLayout
         pnlSubmission.Controls.Add(txtBoxSubmit);
         pnlSubmission.Controls.Add(lblSubmitTitle);
         pnlSubmission.Dock = DockStyle.Bottom;
-        pnlSubmission.Location = new Point(10, 494);
+        pnlSubmission.Location = new Point(10, 330);
         pnlSubmission.Margin = new Padding(5);
         pnlSubmission.Name = "pnlSubmission";
         pnlSubmission.Size = new Size(472, 44);
@@ -133,7 +103,7 @@ partial class TabLayout
         lblQuestion.Location = new Point(10, 52);
         lblQuestion.Margin = new Padding(6, 0, 6, 0);
         lblQuestion.Name = "lblQuestion";
-        lblQuestion.Size = new Size(472, 119);
+        lblQuestion.Size = new Size(472, 170);
         lblQuestion.TabIndex = 0;
         lblQuestion.Text = "You want to give your significant other chocolates, but you only have milk, dark, and white chocolate. What should you do to find out which type they like?";
         lblQuestion.TextAlign = ContentAlignment.TopCenter;
@@ -153,16 +123,16 @@ partial class TabLayout
         // 
         // lblSubmitted
         // 
-        lblSubmitted.Dock = DockStyle.Top;
+        lblSubmitted.Dock = DockStyle.Fill;
         lblSubmitted.Font = new Font("Nirmala UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
         lblSubmitted.ForeColor = Color.DarkGoldenrod;
-        lblSubmitted.Location = new Point(10, 332);
+        lblSubmitted.Location = new Point(10, 222);
         lblSubmitted.Margin = new Padding(6, 0, 6, 0);
         lblSubmitted.Name = "lblSubmitted";
-        lblSubmitted.Size = new Size(472, 155);
+        lblSubmitted.Size = new Size(472, 152);
         lblSubmitted.TabIndex = 0;
-        lblSubmitted.Text = "Submitted: ";
-        lblSubmitted.TextAlign = ContentAlignment.BottomCenter;
+        lblSubmitted.Text = "Submited on ";
+        lblSubmitted.TextAlign = ContentAlignment.MiddleCenter;
         lblSubmitted.Visible = false;
         // 
         // TabLayout
@@ -172,15 +142,13 @@ partial class TabLayout
         BackColor = Color.Maroon;
         Controls.Add(pnlSubmission);
         Controls.Add(lblSubmitted);
-        Controls.Add(lblProblem);
-        Controls.Add(lblProblemTitle);
         Controls.Add(lblQuestion);
         Controls.Add(lblQuestionTitle);
         Font = new Font("Nirmala UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
         Margin = new Padding(5);
         Name = "TabLayout";
         Padding = new Padding(10);
-        Size = new Size(492, 548);
+        Size = new Size(492, 384);
         pnlSubmission.ResumeLayout(false);
         pnlSubmission.PerformLayout();
         ResumeLayout(false);
@@ -188,9 +156,6 @@ partial class TabLayout
     }
 
     #endregion
-
-    private Label lblProblem;
-    private Label lblProblemTitle;
     private Panel pnlSubmission;
     private Button btnSubmit;
     private TextBox txtBoxSubmit;

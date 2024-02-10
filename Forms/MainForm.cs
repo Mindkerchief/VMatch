@@ -7,7 +7,6 @@ public partial class MainForm : Form, ITabLayout
 {
     private List<TabLayoutModel> tabLayoutModels;
     private int hours = 2, minutes = 59, seconds = 60;
-    //private int hours = 0, minutes = 00, seconds = 05;
     private Point mouseOffset;
     private bool isMouseDown = false;
 
@@ -49,8 +48,7 @@ public partial class MainForm : Form, ITabLayout
         }
         catch (Exception ex)
         {
-            MessageBox.Show(ex.Message, "Error!\nCannot proceed to the match.", 
-                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(ex.Message, "Cannot Proceed!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             return false;
         }
 
@@ -59,7 +57,7 @@ public partial class MainForm : Form, ITabLayout
 
     private void btnStartTimer_Click(object sender, EventArgs e)
     {
-        DialogResult startTimerMessage = MessageBox.Show("The Match will now begin", "Start?",
+        DialogResult startTimerMessage = MessageBox.Show("The challenge will now begin", "Start Challenge?",
             MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
         if (startTimerMessage == DialogResult.OK)
@@ -117,7 +115,8 @@ public partial class MainForm : Form, ITabLayout
         tabControlQuestions.Enabled = false;
 
         MessageBox.Show("Congratulations on your hardwork." +
-            "\nUnfortunately the time is already up.\nThank You!");
+            "\nUnfortunately, you run out of time.\nThank you for your participation!", "Times Up!",
+            MessageBoxButtons.OK, MessageBoxIcon.Information);
         logTime("Times Up Time: ", true);
         attachClosingEvent();
     }
@@ -165,22 +164,15 @@ public partial class MainForm : Form, ITabLayout
 
     public string directoryPath
     {
-        get
-        {
-            return Path.Combine(@"~\answers\");
-        }
+        get { return Path.Combine(@"~\answers\"); }
     }
 
     public string logPath
     {
-        get
-        {
-            return Path.Combine(@"~\answers\time.txt");
-        }
+        get { return Path.Combine(@"~\answers\time.txt"); }
     }
 
     // Simulate border tools behavior
-
     private void btnMinimize_Click(object sender, EventArgs e)
     {
         this.WindowState = FormWindowState.Minimized;

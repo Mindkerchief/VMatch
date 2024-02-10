@@ -17,8 +17,6 @@ public partial class TabLayout : UserControl
         // Set Controls Text based on the TabLayoutModel recieved
         lblQuestionTitle.Text = tabLayoutModel.QuestionTitle;
         lblQuestion.Text = tabLayoutModel.Question;
-        lblProblemTitle.Text = tabLayoutModel.ProblemTitle;
-        lblProblem.Text = tabLayoutModel.Problem;
     }
 
     private void btnSubmit_Click(object sender, EventArgs e)
@@ -28,22 +26,23 @@ public partial class TabLayout : UserControl
         {
             if (txtBoxSubmit.Text.ToUpperInvariant() == tabLayoutModel.QuestionAnswer)
             {
-                // If the answer id correct, remove the question labels
-                // Then shows the Problem labels
-                lblQuestionTitle.Dispose();
-                lblQuestion.Dispose();
-                lblProblemTitle.Visible = true;
-                lblProblem.Visible = true;
+                // Replace answered question with associate problem
+                lblQuestionTitle.Text = tabLayoutModel.ProblemTitle;
+                lblQuestion.Text = tabLayoutModel.Problem;
 
                 // Change the Text of the bottom controls to adapt to the requirements
-                txtBoxSubmit.Text = "";
+                txtBoxSubmit.Text = null;
                 lblSubmitTitle.Text = "Submit:";
                 btnSubmit.Text = "UPLOAD";
 
                 tabLayoutInterface.logTime(tabLayoutModel.QuestionTitle + " Answer Time: ", false);
             }
+            // This is a developer backdoor to exit the program during match
+            else if (txtBoxSubmit.Text == "/close")
+                Environment.Exit(0);
+            else if (txtBoxSubmit.Text == "") { }
             else
-                MessageBox.Show("Wrong Answer!", "Wrong", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Wrong Answer!", "Wrong!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
         // File Submission Part
         else if (btnSubmit.Text == "UPLOAD")
@@ -65,8 +64,8 @@ public partial class TabLayout : UserControl
                     tabLayoutInterface.logTime(tabLayoutModel.ProblemTitle + " Submitted Time: ", false);
 
                     // Remove the problem controls then show a new message as Submitted
-                    lblProblemTitle.Dispose();
-                    lblProblem.Dispose();
+                    lblQuestionTitle.Dispose();
+                    lblQuestion.Dispose();
                     lblSubmitted.Text += tabLayoutInterface.getLiveTime();
                     lblSubmitted.Visible = true;
                     pnlSubmission.Dispose();
@@ -74,15 +73,15 @@ public partial class TabLayout : UserControl
             }   
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             // Every upload, check if all the questions are answered
             if (tabLayoutInterface.isProblemsFinished())
             {
                 tabLayoutInterface.logTime("Time Finished: ", true);
-                MessageBox.Show("Well done! With the teamwork you have,\nyou answered all the questions."
-                    + "\nThank you for joining");
+                MessageBox.Show("Well done with the teamwork!,\nYou answered all the questions."
+                    + "\nThank you for joining.", "Challenge Complete!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 tabLayoutInterface.attachClosingEvent();
             }
         }
@@ -103,18 +102,18 @@ public partial class TabLayout : UserControl
                 // By combining main directory and chosen file name
                 targetDirectory += Path.GetFileName(uploadFileDialog.FileName);
 
-                return (MessageBox.Show("Are you sure you want to upload this file " 
+                return (MessageBox.Show("Confirm uploading this file " 
                     + uploadFileDialog.FileName.Split('\\') [uploadFileDialog.FileName.Split('\\').Length - 1]
-                    + " ?", "Submit", MessageBoxButtons.YesNo, MessageBoxIcon.Question), 
+                    + "?", "Submit?", MessageBoxButtons.YesNo, MessageBoxIcon.Question), 
                     uploadFileDialog, targetDirectory);
             }
 
-            return (MessageBox.Show("There is an error", "Error", 
+            return (MessageBox.Show("Error!", "Error!", 
                 MessageBoxButtons.OK, MessageBoxIcon.Error), uploadFileDialog, targetDirectory);
         }
         catch (Exception ex)
         {
-            return (MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error), 
+            return (MessageBox.Show(ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error), 
                 uploadFileDialog, targetDirectory);
         }
     }
