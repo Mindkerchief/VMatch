@@ -46,7 +46,7 @@ public partial class TabLayout : UserControl
                 lblSubmitTitle.Text = "Submit:";
                 btnSubmit.Text = "UPLOAD";
 
-                submitTime(tabLayoutModel.QuestionTitle + " Answer Time");
+                tabLayoutInterface.logTime(tabLayoutModel.QuestionTitle + " Answer Time: ", false);
             }
             else
                 MessageBox.Show("Wrong Answer!", "Wrong", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -60,14 +60,14 @@ public partial class TabLayout : UserControl
                 DialogResult dialogResult;
                 string targetDirectory;
 
-                (dialogResult, uploadFileDialog, targetDirectory) = submitFile();
+                (dialogResult, uploadFileDialog, targetDirectory) = openFile();
 
                 if (dialogResult == DialogResult.Yes)
                 {
                     File.Copy(uploadFileDialog.FileName, targetDirectory);
                     lblSubmitted.Text += tabLayoutInterface.getLiveTime();
                     tabLayoutModel.IsFinished = true;
-                    submitTime(tabLayoutModel.ProblemTitle + " Submitted Time: ");
+                    tabLayoutInterface.logTime(tabLayoutModel.ProblemTitle + " Submitted Time: ", false);
 
                     lblProblemTitle.Dispose();
                     lblProblem.Dispose();
@@ -82,7 +82,7 @@ public partial class TabLayout : UserControl
 
             if (tabLayoutInterface.isQuestionsFinished())
             {
-                submitTime("Time Finished: ");
+                tabLayoutInterface.logTime("Time Finished: ", true);
                 MessageBox.Show("Well done! With the teamwork you have,\nyou answered all the questions."
                     + "\nThank you for joining");
                 tabLayoutInterface.attachClosingEvent();
@@ -90,30 +90,16 @@ public partial class TabLayout : UserControl
         }
     }
 
-    private (DialogResult, OpenFileDialog, string) submitFile()
+    private (DialogResult, OpenFileDialog, string) openFile()
     {
         OpenFileDialog uploadFileDialog = new OpenFileDialog();
-        string targetDirectory = "";
+        string targetDirectory = tabLayoutInterface.directoryPath;
+        tabLayoutInterface.checkDirectory();
 
         try
         {
             if (uploadFileDialog.ShowDialog() == DialogResult.OK)
             {
-                targetDirectory = Path.Combine(@"~\answers\");
-
-                if (!Directory.Exists(targetDirectory))
-                {
-                    // Create and restrict data access to directory
-                    Directory.CreateDirectory(targetDirectory);
-                    DirectoryInfo directoryInfo = new DirectoryInfo(targetDirectory);
-                    DirectorySecurity directorySecurity = directoryInfo.GetAccessControl();
-                    FileSystemAccessRule accessRule = new FileSystemAccessRule("Everyone",
-                        FileSystemRights.ReadAndExecute, AccessControlType.Deny);
-
-                    directorySecurity.AddAccessRule(accessRule);
-                    directoryInfo.SetAccessControl(directorySecurity);
-                }
-
                 string fileName = Path.GetFileName(uploadFileDialog.FileName);
                 targetDirectory += fileName;
 
@@ -131,41 +117,6 @@ public partial class TabLayout : UserControl
             return (MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error), 
                 uploadFileDialog, targetDirectory);
         }
-    }
-
-    private void submitTime(string subject)
-    {
-        if (checkDirectory())
-        {
-            string targetDirectory = Path.Combine(@"~\answers\time.txt");
-
-            using (StreamWriter streamWriter = File.AppendText(targetDirectory))
-            {
-                streamWriter.WriteLine(subject + tabLayoutInterface.getLiveTime());
-            }
-        }
-    }
-
-    private bool checkDirectory()
-    {
-        try
-        {
-            string targetDirectory = Path.Combine(@"~\answers\");
-
-            if (!Directory.Exists(targetDirectory))
-                Directory.CreateDirectory(targetDirectory);
-
-            targetDirectory = Path.Combine(@"~\answers\time.txt");
-
-            if (!File.Exists(targetDirectory))
-                File.Create(targetDirectory).Close();
-        }
-        catch (Exception ex) 
-        {
-            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-
-        return true;
     }
 
     private void txtBoxSubmit_KeyDown(object sender, KeyEventArgs e)

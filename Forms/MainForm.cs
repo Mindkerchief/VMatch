@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Runtime.InteropServices;
+using System.Security.AccessControl;
 using VMatch.Class;
 using VMatch.Forms;
 
@@ -8,20 +9,53 @@ namespace VMatch;
 public partial class MainForm : Form, ITabLayout
 {
     private List<TabLayoutModel> tabLayoutModels;
-    private int hours = 2, minutes = 59, seconds = 60;
-    //private int hours = 0, minutes = 00, seconds = 05;
+    //private int hours = 2, minutes = 59, seconds = 60;
+    private int hours = 0, minutes = 00, seconds = 05;
     private Point mouseOffset;
     private bool isMouseDown = false;
 
     public MainForm()
     {
         InitializeComponent();
-        tabLayoutModels = new SetupModel().setupTabLayoutModel();
+
+        if (!checkDirectory())
+        {
+            btnStartTimer.Enabled = false;
+            btnClose.Visible = true;
+            btnClose.Click += btnClose_Click;
+        }
+        else
+            tabLayoutModels = new SetupModel().setupTabLayoutModel();
     }
 
-    private void createDirectory()
+    public bool checkDirectory()
     {
+        try
+        {
+            if (!Directory.Exists(directoryPath))
+            {
+                // Create and restrict data access to directory
+                Directory.CreateDirectory(directoryPath);
+                DirectoryInfo directoryInfo = new DirectoryInfo(directoryPath);
+                DirectorySecurity directorySecurity = directoryInfo.GetAccessControl();
+                FileSystemAccessRule accessRule = new FileSystemAccessRule("Everyone",
+                    FileSystemRights.ReadAndExecute, AccessControlType.Deny);
 
+                directorySecurity.AddAccessRule(accessRule);
+                directoryInfo.SetAccessControl(directorySecurity);
+
+                if (!File.Exists(logPath))
+                    File.Create(logPath).Close();
+            }
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show(ex.Message, "Error!\nCannot proceed to the match.", 
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return false;
+        }
+
+        return true;
     }
 
     private void btnStartTimer_Click(object sender, EventArgs e)
@@ -38,6 +72,8 @@ public partial class MainForm : Form, ITabLayout
                 tabPage.Controls.Add(tabLayout);
             }
 
+            logTime("Match Started Time: ", true);
+
             btnMinimize.Visible = true;
             btnClose.Visible = true;
             btnStartTimer.Dispose();
@@ -51,9 +87,7 @@ public partial class MainForm : Form, ITabLayout
         {
             if (minutes == 00 && hours == 0)
             {
-                timerMatchTime.Stop();
-                MessageBox.Show("Congratulations on your hardwork.\nUnfortunately the time is already up.\nThank You!");
-                tabControlQuestions.Enabled = false;
+                timesUp();
                 return;
             }
             else if (minutes == 0)
@@ -74,9 +108,34 @@ public partial class MainForm : Form, ITabLayout
         lblLiveTime.Text = $"{hours:00}:{minutes:00}:{seconds:00}";
     }
 
+    private void timesUp()
+    {
+        timerMatchTime.Stop();
+        tabControlQuestions.Enabled = false;
+
+        MessageBox.Show("Congratulations on your hardwork." +
+            "\nUnfortunately the time is already up.\nThank You!");
+        logTime("Times Up Time: ", true);
+        attachClosingEvent();
+    }
+
+    public void logTime(string subject, bool useRealTime)
+    {
+        if (checkDirectory())
+        {
+            using (StreamWriter streamWriter = File.AppendText(logPath))
+            {
+                if (useRealTime)
+                    streamWriter.WriteLine(subject + DateTime.Now.ToString("HH:mm:ss"));
+                else
+                    streamWriter.WriteLine(subject + $"{hours:00}:{minutes:00}:{seconds:00}".ToString());
+            }
+        }
+    }
+
     public string getLiveTime()
     {
-        return lblLiveTime.Text = $"{hours:00}:{minutes:00}:{seconds:00}".ToString(); ;
+        return lblLiveTime.Text;
     }
 
     public bool isQuestionsFinished()
@@ -96,7 +155,23 @@ public partial class MainForm : Form, ITabLayout
     public void attachClosingEvent()
     {
         btnClose.Click += btnClose_Click;
-        timerMatchTime.Dispose();
+        timerMatchTime.Stop();
+    }
+
+    public string directoryPath
+    {
+        get
+        {
+            return Path.Combine(@"~\answers\");
+        }
+    }
+
+    public string logPath
+    {
+        get
+        {
+            return Path.Combine(@"~\answers\time.txt");
+        }
     }
 
     // Border Tools Behavior
