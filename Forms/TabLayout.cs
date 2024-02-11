@@ -37,16 +37,20 @@ public partial class TabLayout : UserControl
 
                 tabLayoutInterface.logTime(tabLayoutModel.QuestionTitle + " Answer Time: ", false);
             }
-            // This is a developer backdoor to exit the program during match
+            // This is a developer backdoor to exit the program during challenge
             else if (txtBoxSubmit.Text == "/close")
-                Environment.Exit(0);
+                forceClose();
             else if (txtBoxSubmit.Text == "") { }
             else
-                MessageBox.Show("Wrong Answer!", "Wrong!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Wrong Answer!", "VMatch", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
         // File Submission Part
         else if (btnSubmit.Text == "UPLOAD")
         {
+            // This is a developer backdoor to exit the program during challenge
+            if (txtBoxSubmit.Text == "/close")
+                forceClose();
+
             try
             {
                 OpenFileDialog uploadFileDialog;
@@ -73,15 +77,15 @@ public partial class TabLayout : UserControl
             }   
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "VMatch", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             // Every upload, check if all the questions are answered
             if (tabLayoutInterface.isProblemsFinished())
             {
-                tabLayoutInterface.logTime("Time Finished: ", true);
+                tabLayoutInterface.logTime("Challenge Completed Time: ", true);
                 MessageBox.Show("Well done with the teamwork!,\nYou answered all the questions."
-                    + "\nThank you for joining.", "Challenge Complete!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    + "\nThank you for joining.", "VMatch", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 tabLayoutInterface.attachClosingEvent();
             }
         }
@@ -102,18 +106,18 @@ public partial class TabLayout : UserControl
                 // By combining main directory and chosen file name
                 targetDirectory += Path.GetFileName(uploadFileDialog.FileName);
 
-                return (MessageBox.Show("Confirm uploading this file " 
+                return (MessageBox.Show("Confirm sumbitting this file " 
                     + uploadFileDialog.FileName.Split('\\') [uploadFileDialog.FileName.Split('\\').Length - 1]
-                    + "?", "Submit?", MessageBoxButtons.YesNo, MessageBoxIcon.Question), 
+                    + "?", "VMatch", MessageBoxButtons.YesNo, MessageBoxIcon.Question), 
                     uploadFileDialog, targetDirectory);
             }
 
-            return (MessageBox.Show("Error!", "Error!", 
+            return (MessageBox.Show("Error!", "VMatch", 
                 MessageBoxButtons.OK, MessageBoxIcon.Error), uploadFileDialog, targetDirectory);
         }
         catch (Exception ex)
         {
-            return (MessageBox.Show(ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error), 
+            return (MessageBox.Show(ex.Message, "VMatch", MessageBoxButtons.OK, MessageBoxIcon.Error), 
                 uploadFileDialog, targetDirectory);
         }
     }
@@ -124,5 +128,11 @@ public partial class TabLayout : UserControl
         {
             btnSubmit.PerformClick();
         }
+    }
+
+    private void forceClose()
+    {
+        tabLayoutInterface.logTime("Program closed using command: ", true);
+        Environment.Exit(0);
     }
 }

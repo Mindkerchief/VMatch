@@ -48,7 +48,7 @@ public partial class MainForm : Form, ITabLayout
         }
         catch (Exception ex)
         {
-            MessageBox.Show(ex.Message, "Cannot Proceed!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            MessageBox.Show("Cannot proceed to the challenge!\n" + ex.Message, "VMatch", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             return false;
         }
 
@@ -57,10 +57,10 @@ public partial class MainForm : Form, ITabLayout
 
     private void btnStartTimer_Click(object sender, EventArgs e)
     {
-        DialogResult startTimerMessage = MessageBox.Show("The challenge will now begin", "Start Challenge?",
+        DialogResult startChallengeMessage = MessageBox.Show("Start the challenge?", "VMatch",
             MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
-        if (startTimerMessage == DialogResult.OK)
+        if (startChallengeMessage == DialogResult.OK)
         {
             // Populate the Tab Controls with the custom tab layout
             foreach (TabPage tabPage in tabControlQuestions.TabPages)
@@ -70,7 +70,7 @@ public partial class MainForm : Form, ITabLayout
                 tabPage.Controls.Add(tabLayout);
             }
 
-            logTime("Match Started Time: ", true);
+            logTime("\nChallenge Started Time: ", true);
 
             // Perform some controls operation to for the user to interact to once the match begin
             btnMinimize.Visible = true;
@@ -115,9 +115,9 @@ public partial class MainForm : Form, ITabLayout
         tabControlQuestions.Enabled = false;
 
         MessageBox.Show("Congratulations on your hardwork." +
-            "\nUnfortunately, you run out of time.\nThank you for your participation!", "Times Up!",
+            "\nUnfortunately, you run out of time.\nThank you for your participation!", "VMatch",
             MessageBoxButtons.OK, MessageBoxIcon.Information);
-        logTime("Times Up Time: ", true);
+        logTime("Challenge Times Up Time: ", true);
         attachClosingEvent();
     }
 
@@ -180,12 +180,13 @@ public partial class MainForm : Form, ITabLayout
 
     private void btnClose_Click(object sender, EventArgs e)
     {
+        logTime("Program closed: ", true);
         Environment.Exit(0);
     }
 
     private void btnMinimize_MouseEnter(object sender, EventArgs e)
     {
-        btnMinimize.BackColor = Color.DarkGoldenrod;
+        btnMinimize.BackColor = Color.LightPink;
     }
 
     private void btnMinimize_MouseLeave(object sender, EventArgs e)
@@ -195,7 +196,7 @@ public partial class MainForm : Form, ITabLayout
 
     private void btnClose_MouseEnter(object sender, EventArgs e)
     {
-        btnClose.BackColor = Color.MidnightBlue;
+        btnClose.BackColor = Color.Red;
     }
 
     private void btnClose_MouseLeave(object sender, EventArgs e)
@@ -234,6 +235,7 @@ public partial class MainForm : Form, ITabLayout
     // Prevents the participants from closing the app manually
     private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
     {
+        logTime("Attempted to close the program: ", false);
         e.Cancel = true;
     }
 }

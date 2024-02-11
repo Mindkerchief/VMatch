@@ -78,7 +78,8 @@ partial class MainForm
         // 
         // tabQuestion1
         // 
-        tabQuestion1.BackColor = Color.Maroon;
+        tabQuestion1.BackColor = Color.FromArgb(162, 30, 33);
+        tabQuestion1.BackgroundImageLayout = ImageLayout.Zoom;
         tabQuestion1.Location = new Point(4, 34);
         tabQuestion1.Margin = new Padding(5, 6, 5, 6);
         tabQuestion1.Name = "tabQuestion1";
@@ -88,7 +89,8 @@ partial class MainForm
         // 
         // tabQuestion2
         // 
-        tabQuestion2.BackColor = Color.Maroon;
+        tabQuestion2.BackColor = Color.FromArgb(162, 30, 33);
+        tabQuestion2.BackgroundImageLayout = ImageLayout.Stretch;
         tabQuestion2.Location = new Point(4, 34);
         tabQuestion2.Margin = new Padding(5, 6, 5, 6);
         tabQuestion2.Name = "tabQuestion2";
@@ -98,7 +100,8 @@ partial class MainForm
         // 
         // tabQuestion3
         // 
-        tabQuestion3.BackColor = Color.Maroon;
+        tabQuestion3.BackColor = Color.FromArgb(162, 30, 33);
+        tabQuestion3.BackgroundImageLayout = ImageLayout.Stretch;
         tabQuestion3.Location = new Point(4, 34);
         tabQuestion3.Margin = new Padding(5, 6, 5, 6);
         tabQuestion3.Name = "tabQuestion3";
@@ -108,7 +111,7 @@ partial class MainForm
         // 
         // tabQuestion4
         // 
-        tabQuestion4.BackColor = Color.Maroon;
+        tabQuestion4.BackColor = Color.FromArgb(162, 30, 33);
         tabQuestion4.Location = new Point(4, 34);
         tabQuestion4.Margin = new Padding(5, 6, 5, 6);
         tabQuestion4.Name = "tabQuestion4";
@@ -118,7 +121,7 @@ partial class MainForm
         // 
         // tabQuestion5
         // 
-        tabQuestion5.BackColor = Color.Maroon;
+        tabQuestion5.BackColor = Color.FromArgb(162, 30, 33);
         tabQuestion5.Location = new Point(4, 34);
         tabQuestion5.Margin = new Padding(5, 6, 5, 6);
         tabQuestion5.Name = "tabQuestion5";
@@ -128,7 +131,7 @@ partial class MainForm
         // 
         // tabQuestion6
         // 
-        tabQuestion6.BackColor = Color.Maroon;
+        tabQuestion6.BackColor = Color.FromArgb(162, 30, 33);
         tabQuestion6.Location = new Point(4, 34);
         tabQuestion6.Margin = new Padding(5, 6, 5, 6);
         tabQuestion6.Name = "tabQuestion6";
@@ -138,7 +141,7 @@ partial class MainForm
         // 
         // tabQuestion7
         // 
-        tabQuestion7.BackColor = Color.Maroon;
+        tabQuestion7.BackColor = Color.FromArgb(162, 30, 33);
         tabQuestion7.Location = new Point(4, 34);
         tabQuestion7.Margin = new Padding(5, 6, 5, 6);
         tabQuestion7.Name = "tabQuestion7";
@@ -148,7 +151,7 @@ partial class MainForm
         // 
         // tabQuestion8
         // 
-        tabQuestion8.BackColor = Color.Maroon;
+        tabQuestion8.BackColor = Color.FromArgb(162, 30, 33);
         tabQuestion8.Location = new Point(4, 34);
         tabQuestion8.Margin = new Padding(5, 6, 5, 6);
         tabQuestion8.Name = "tabQuestion8";
@@ -158,7 +161,7 @@ partial class MainForm
         // 
         // tabQuestion9
         // 
-        tabQuestion9.BackColor = Color.Maroon;
+        tabQuestion9.BackColor = Color.FromArgb(162, 30, 33);
         tabQuestion9.Location = new Point(4, 34);
         tabQuestion9.Margin = new Padding(5, 6, 5, 6);
         tabQuestion9.Name = "tabQuestion9";
@@ -168,7 +171,7 @@ partial class MainForm
         // 
         // tabQuestion10
         // 
-        tabQuestion10.BackColor = Color.Maroon;
+        tabQuestion10.BackColor = Color.FromArgb(162, 30, 33);
         tabQuestion10.Location = new Point(4, 34);
         tabQuestion10.Margin = new Padding(5, 6, 5, 6);
         tabQuestion10.Name = "tabQuestion10";
@@ -178,7 +181,9 @@ partial class MainForm
         // 
         // pnlTitleBar
         // 
-        pnlTitleBar.BackColor = Color.Maroon;
+        pnlTitleBar.BackColor = Color.FromArgb(162, 30, 33);
+        pnlTitleBar.BackgroundImage = Properties.Resources.toolbar_background;
+        pnlTitleBar.BackgroundImageLayout = ImageLayout.Stretch;
         pnlTitleBar.Controls.Add(btnStartTimer);
         pnlTitleBar.Controls.Add(lblLiveTime);
         pnlTitleBar.Controls.Add(lblTimer);
@@ -197,7 +202,7 @@ partial class MainForm
         // btnStartTimer
         // 
         btnStartTimer.AutoSize = true;
-        btnStartTimer.BackColor = Color.DarkGoldenrod;
+        btnStartTimer.BackColor = Color.FromArgb(240, 96, 147);
         btnStartTimer.Cursor = Cursors.Hand;
         btnStartTimer.FlatAppearance.BorderSize = 0;
         btnStartTimer.FlatStyle = FlatStyle.Flat;
@@ -215,6 +220,7 @@ partial class MainForm
         // lblLiveTime
         // 
         lblLiveTime.AutoSize = true;
+        lblLiveTime.BackColor = Color.Transparent;
         lblLiveTime.Font = new Font("Nirmala UI", 18F, FontStyle.Bold);
         lblLiveTime.ForeColor = Color.White;
         lblLiveTime.Location = new Point(72, 4);
@@ -228,6 +234,7 @@ partial class MainForm
         // lblTimer
         // 
         lblTimer.AutoSize = true;
+        lblTimer.BackColor = Color.Transparent;
         lblTimer.Dock = DockStyle.Left;
         lblTimer.Font = new Font("Nirmala UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
         lblTimer.ForeColor = Color.White;
@@ -290,6 +297,7 @@ partial class MainForm
         // 
         AutoScaleDimensions = new SizeF(11F, 25F);
         AutoScaleMode = AutoScaleMode.Font;
+        BackgroundImageLayout = ImageLayout.Stretch;
         ClientSize = new Size(500, 350);
         Controls.Add(tabControlQuestions);
         Controls.Add(pnlTitleBar);

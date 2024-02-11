@@ -54,7 +54,7 @@ partial class TabLayout
         // btnSubmit
         // 
         btnSubmit.AutoSize = true;
-        btnSubmit.BackColor = Color.DarkGoldenrod;
+        btnSubmit.BackColor = Color.FromArgb(240, 96, 147);
         btnSubmit.Cursor = Cursors.Hand;
         btnSubmit.FlatAppearance.BorderSize = 2;
         btnSubmit.FlatStyle = FlatStyle.Flat;
@@ -71,7 +71,7 @@ partial class TabLayout
         // 
         // txtBoxSubmit
         // 
-        txtBoxSubmit.BackColor = Color.DarkGoldenrod;
+        txtBoxSubmit.BackColor = Color.FromArgb(240, 96, 147);
         txtBoxSubmit.Cursor = Cursors.IBeam;
         txtBoxSubmit.Font = new Font("Nirmala UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
         txtBoxSubmit.ForeColor = Color.White;
@@ -125,7 +125,7 @@ partial class TabLayout
         // 
         lblSubmitted.Dock = DockStyle.Fill;
         lblSubmitted.Font = new Font("Nirmala UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        lblSubmitted.ForeColor = Color.DarkGoldenrod;
+        lblSubmitted.ForeColor = Color.FromArgb(240, 96, 147);
         lblSubmitted.Location = new Point(10, 222);
         lblSubmitted.Margin = new Padding(6, 0, 6, 0);
         lblSubmitted.Name = "lblSubmitted";
@@ -139,7 +139,8 @@ partial class TabLayout
         // 
         AutoScaleDimensions = new SizeF(11F, 25F);
         AutoScaleMode = AutoScaleMode.Font;
-        BackColor = Color.Maroon;
+        BackColor = Color.FromArgb(162, 30, 33);
+        BackgroundImageLayout = ImageLayout.Stretch;
         Controls.Add(pnlSubmission);
         Controls.Add(lblSubmitted);
         Controls.Add(lblQuestion);
