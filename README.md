@@ -32,10 +32,10 @@ A Windows Form application that has riddles which reveals a programming problem 
 ![close-prevention](https://github.com/Mindkerchief/VMatch/assets/130748576/0ae2a5ca-fb26-4cd8-bacb-f259217c1136)
 - **Close Prevention** - Prevents program from closing to prevent cheating.
 - **Folder Access Restriction** - Restrict participants from accessing the solution and log folder.
-- **Action/Time Log** - Records the time of starting, answering, submitting, closing and times-up.
+- **Action/Time Log** - Records the time of starting, answering, submitting, closing and times-up in a text file.
 
 > [!NOTE]
-> The program will create `~` folder in the root directory at launch.
+> The program will create `~` protected folder in the root directory at launch which will contains the answer files and log.
 
 > [!TIP]
 > To access restricted folder, go to `~` Folder Security and delete Everyone group.
@@ -47,4 +47,4 @@ A Windows Form application that has riddles which reveals a programming problem 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
-- **[Visual Studio 2022](https://learn.microsoft.com/en-us/visualstudio/ide/?view=vs-2022)**: The offial IDE for Windows Form Application by Microsoft.
+- **[Visual Studio 2022](https://learn.microsoft.com/en-us/visualstudio/ide/?view=vs-2022)**: The official IDE for Windows Form Application by Microsoft.
