@@ -2,13 +2,35 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net8.0-windows</TargetFramework>
+    <TargetFramework>net7.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
-    <ApplicationIcon>icon-semicolon.ico</ApplicationIcon>
+	<ApplicationIcon>icon-semicolon.ico</ApplicationIcon>
     <StartupObject>VMatch.Program</StartupObject>
+	
+	<SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
+	<Authors>Mindkerchief</Authors>
+	<Copyright>This project is licensed under the MIT License.</Copyright>
+	<PackageLicenseExpression>MIT</PackageLicenseExpression>
+	<PackageLicenseFile>LICENSE</PackageLicenseFile>
+	<PackageProjectUrl>https://github.com/Mindkerchief/VMatch</PackageProjectUrl>
+	<RepositoryUrl>https://github.com/Mindkerchief/VMatch</RepositoryUrl>
+	<RepositoryType>git</RepositoryType>
+	<PackageIcon>icon-semicolon-red.png</PackageIcon>
+	<Description>A Windows Form application for programming competition in a Valentines theme.</Description>
+	<PackageReleaseNotes>Initial release.</PackageReleaseNotes>
+	<AssemblyVersion>1.0.0.0</AssemblyVersion>
+	<FileVersion>1.0.0.0</FileVersion>
+	<InformationalVersion>1.0.0.0</InformationalVersion>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\..\..\Downloads\icon-semicolon-red.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
