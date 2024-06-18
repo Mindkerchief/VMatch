@@ -30,7 +30,7 @@ A Windows Form application that has riddles which reveals a programming problem 
 </div>
 
 - **Timer** - Countdown for the competition time limit.
-- **Riddle/Question** - Riddle and questions to answer to proceed to next step.
+- **Riddle-Problem** - Riddle and problem to answer to proceed to next step.
 - **Upload Solution** - Submit file with proper naming as solution.
 
 ### Monitoring
