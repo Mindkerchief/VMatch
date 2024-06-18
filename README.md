@@ -8,12 +8,17 @@ A Windows Form application that has riddles which reveals a programming problem 
 - [Acknowledgments](#acknowledgments)
 
 ## Installation
-### Pre-requisite
-- [.NET 8.0](https://dotnet.microsoft.com/en-us/download)
 
-### Steps
-1. Download the latest release
-2. Install the installer
+### Framework Dependent
+1. Download and Install [.NET 8.0](https://dotnet.microsoft.com/en-us/download).
+2. Open the latest release.
+3. Download and Extract `VMatch-1.0.0-framework-dependent.zip`.
+4. Open the folder and launch `VMatch.exe`.
+
+### Self-contained
+1. Open the latest release.
+2. Download `VMatch-1.0.0-self-contained.exe`.
+3. Launch `VMatch-1.0.0-self-contained.exe`.
 
 ## Features
 ### Navigation
@@ -41,7 +46,7 @@ A Windows Form application that has riddles which reveals a programming problem 
 > To access restricted folder, go to `~` Folder Security and delete Everyone group.
 
 > [!TIP]
-> Program can only be close by entering /close as answer, ending the task in Task Manager or waiting for time limit to expire.
+> Program can only be close by entering `/close` as answer, ending the task in Task Manager or waiting for time limit to expire.
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
