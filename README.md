@@ -1,5 +1,5 @@
 # ![semicolon-red][logo-thumbnail] VMatch ![github-readme][app-badge]
-A Windows form application that has riddles that reveal a programming problem when solved. The program is timed and records every action performed by the participants. This program is used for programming competitions with a theme of Valentine's Day.
+A Windows forms application that gives question problems and lets users upload their solution files. The questions are composed of riddles that reveal a programming problem when solved. A timer is active during the runtime and records every action performed by the participants. This program is used for programming competitions with a theme of Valentine's Day.
 
 ## Table of Contents
 - [Features](#features)
@@ -11,9 +11,9 @@ A Windows form application that has riddles that reveal a programming problem wh
 ### Main Features
 ![screenshot-1][start-screen] &nbsp;
 ![screenshot-2][question-screen]
-- **Timer** - Countdown for the competition time limit.
-- **Riddle-Problem** - Riddle and problem to answer to proceed to the next step.
-- **Upload Solution** - Submit a file with proper naming as a solution.
+- **Timer** - Displays the time left during competition.
+- **Riddle-Problem** - Reveals the riddles and problems to answer.
+- **Upload Solution** - Let the participant submit their solution file.
 
 ### Additionl Features
 ![screenshot-3][close-prevention]
@@ -21,24 +21,27 @@ A Windows form application that has riddles that reveal a programming problem wh
 - **Folder Access Restriction** - Restrict participants from accessing the solution and log folder.
 - **Action/Time Log** - Records the time of starting, answering, submitting, closing and times-up in a text file.
 
+> [!IMPORTANT]
+> The program will create a `~` protected folder in the root directory at launch, which will contain the answer files and time log.
+
+> [!IMPORTANT]
+> To access the restricted folder, go to `~` folder security property and delete the `Everyone` group.
+
 > [!NOTE]
-> The program will create a `~` protected folder in the root directory at launch which will contain the answer files and log.
+> The program can only be closed by entering `/close` as the answer, ending the task in Task Manager, or waiting for the time limit to expire.
 
 > [!TIP]
-> To access the restricted folder, go to `~` folder security and delete the `Everyone` group.
-
-> [!TIP]
-> The program can only be closed by entering `/close` as an answer, ending the task in Task Manager, or waiting for the time limit to expire.
+> Let the participants know that they have to name their answer based on problem number before submitting.
 
 ## Installation
 ### Framework Dependent
-1. Download and install the latest version of [.NET][dotnet-framework].
-2. Open the [latest release][release-page] of VMatch.
+1. Download and install the latest version of [.NET][dotnet].
+2. Go to the [latest release][release-page] page of VMatch.
 3. Download and extract `VMatch-1.0.0-framework-dependent.zip`.
 4. Open the folder and launch `VMatch.exe`.
 
 ### Self-contained
-1. Open the [latest release][release-page] of VMatch.
+1. Go to the [latest release][release-page] page of VMatch.
 2. Download `VMatch-1.0.0-self-contained.exe`.
 3. Launch `VMatch-1.0.0-self-contained.exe`.
 
@@ -59,6 +62,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 [close-prevention]: https://github.com/Mindkerchief/VMatch/assets/130748576/0ae2a5ca-fb26-4cd8-bacb-f259217c1136
 
 [release-page]: https://github.com/Mindkerchief/README-MKC-Standard/releases
-[dotnet-framework]: https://dotnet.microsoft.com/en-us/download
+[dotnet]: https://dotnet.microsoft.com/en-us/download
 [visual-studio-2022]: https://learn.microsoft.com/en-us/visualstudio/ide/?view=vs-2022
 [windows-forms]: https://learn.microsoft.com/en-us/dotnet/desktop/winforms/?view=netdesktop-8.0
