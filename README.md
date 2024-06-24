@@ -61,7 +61,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 [question-screen]: https://github.com/Mindkerchief/VMatch/assets/130748576/2f1a77be-6cc3-4006-86c4-8f9c51a9d931
 [close-prevention]: https://github.com/Mindkerchief/VMatch/assets/130748576/0ae2a5ca-fb26-4cd8-bacb-f259217c1136
 
-[release-page]: https://github.com/Mindkerchief/README-MKC-Standard/releases
+[release-page]: https://github.com/Mindkerchief/VMatch/releases
 [dotnet]: https://dotnet.microsoft.com/en-us/download
 [visual-studio-2022]: https://learn.microsoft.com/en-us/visualstudio/ide/?view=vs-2022
 [windows-forms]: https://learn.microsoft.com/en-us/dotnet/desktop/winforms/?view=netdesktop-8.0
