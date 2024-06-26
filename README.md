@@ -1,4 +1,4 @@
-# ![semicolon-red][logo-thumbnail] VMatch ![github-readme][app-badge]
+# ![vmatch-thumbnail][vmatch-thumbnail] VMatch ![vmatch-badge][vmatch-badge]
 A Windows forms application that gives question problems and lets users upload their solution files. The questions are composed of riddles that reveal a programming problem when solved. A timer is active during the runtime and records every action performed by the participants. This program is used for programming competitions with a theme of Valentine's Day.
 
 ## Table of Contents
@@ -22,10 +22,7 @@ A Windows forms application that gives question problems and lets users upload t
 - **Action/Time Log** - Records the time of starting, answering, submitting, closing and times-up in a text file.
 
 > [!IMPORTANT]
-> The program will create a `~` protected folder in the root directory at launch, which will contain the answer files and time log.
-
-> [!IMPORTANT]
-> To access the restricted folder, go to `~` folder security property and delete the `Everyone` group.
+> The program will create a restricted folder named `answers` inside the `~` folder. This contains the uploaded solution files and time log. To access the restricted folder, go to `answers` folder advance security property, then click continue and remove the `Everyone` group.
 
 > [!TIP]
 > The program can only be closed by entering `/close` as the answer, ending the task in Task Manager, or waiting for the time limit to expire.
@@ -47,8 +44,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **[Advanced Installer][advanced-installer]**: For installer.
 
 <!-- Reference -->
-[logo-thumbnail]: https://github.com/Mindkerchief/VMatch/assets/130748576/a65c7e73-af97-4a10-8954-11e1853c02e2
-[app-badge]: https://img.shields.io/badge/Windows-Programming_Competition_Management_System-B93931
+[vmatch-thumbnail]: https://github.com/Mindkerchief/VMatch/assets/130748576/c873fee9-611d-4b7c-ac9f-6e61c0fac6a5
+[vmatch-badge]: https://img.shields.io/badge/Windows-Programming_Competition_Management_System-B93931
 
 [main-screen]: https://github.com/Mindkerchief/VMatch/assets/130748576/efac8a7b-9e9c-4051-a664-fed02e86f228
 [problem-screen]: https://github.com/Mindkerchief/VMatch/assets/130748576/901b8a48-d7a8-43b8-a897-4902916c6f5c
