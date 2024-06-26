@@ -2,34 +2,41 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net7.0-windows</TargetFramework>
+    <TargetFramework>net8.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
-	<ApplicationIcon>icon-semicolon.ico</ApplicationIcon>
+	<ApplicationIcon>Resources\vmatch.ico</ApplicationIcon>
     <StartupObject>VMatch.Program</StartupObject>
-	
-	<SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
 	<Authors>Mindkerchief</Authors>
 	<Copyright>This project is licensed under the MIT License.</Copyright>
-	<PackageLicenseExpression>MIT</PackageLicenseExpression>
 	<PackageLicenseFile>LICENSE</PackageLicenseFile>
 	<PackageProjectUrl>https://github.com/Mindkerchief/VMatch</PackageProjectUrl>
 	<RepositoryUrl>https://github.com/Mindkerchief/VMatch</RepositoryUrl>
 	<RepositoryType>git</RepositoryType>
 	<PackageIcon>icon-semicolon-red.png</PackageIcon>
-	<Description>A Windows Form application for programming competition in a Valentines theme.</Description>
-	<PackageReleaseNotes>Initial release.</PackageReleaseNotes>
-	<AssemblyVersion>1.0.0.0</AssemblyVersion>
-	<FileVersion>1.0.0.0</FileVersion>
+	<Description>A programming competition management system in a Valentine's Day theme.</Description>
+	<PackageReleaseNotes>Initial release of VMatch
+
+Main Features
+- Timer - Displays the time left during competition.
+- Riddle-Problem - Reveals the riddles and problems to answer.
+- Upload Solution - Let the participant submit their solution file.
+
+Additional Features
+- Close Prevention - Prevents program from closing to prevent cheating.
+- Folder Access Restriction - Restrict participants from accessing the solution and log folder.
+- Action/Time Log - Records the time of starting, answering, submitting, closing and times-up in a text file.</PackageReleaseNotes>
+	<AssemblyVersion>1.0.0</AssemblyVersion>
+	<FileVersion>1.0.0</FileVersion>
 	<InformationalVersion>1.0.0.0</InformationalVersion>
+	<NeutralLanguage>en-PH</NeutralLanguage>
+	<Title>VMatch</Title>
+	<PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\..\..\..\..\Downloads\icon-semicolon-red.png">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
+    <Content Include="Resources\vmatch.ico" />
   </ItemGroup>
 
   <ItemGroup>
@@ -45,6 +52,25 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="icon-semicolon-red.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Update="LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Update="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Update="Resources\icon-semicolon-red.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

@@ -83,10 +83,30 @@ namespace VMatch.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icon_semicolon_red {
+            get {
+                object obj = ResourceManager.GetObject("icon_semicolon_red", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap toolbar_background {
             get {
                 object obj = ResourceManager.GetObject("toolbar-background", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon vmatch {
+            get {
+                object obj = ResourceManager.GetObject("vmatch", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
     }

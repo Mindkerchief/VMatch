@@ -124,7 +124,13 @@
   <data name="icon_minimize" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon-minimize.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icon_semicolon_red" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon-semicolon-red.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="toolbar-background" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\toolbar-background.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="vmatch" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\vmatch.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
