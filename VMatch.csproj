@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
-	<ApplicationIcon>Resources\vmatch.ico</ApplicationIcon>
+	<ApplicationIcon>Resources\icon-vmatch.ico</ApplicationIcon>
     <StartupObject>VMatch.Program</StartupObject>
 	<Authors>Mindkerchief</Authors>
 	<Copyright>This project is licensed under the MIT License.</Copyright>
@@ -14,7 +14,7 @@
 	<PackageProjectUrl>https://github.com/Mindkerchief/VMatch</PackageProjectUrl>
 	<RepositoryUrl>https://github.com/Mindkerchief/VMatch</RepositoryUrl>
 	<RepositoryType>git</RepositoryType>
-	<PackageIcon>icon-semicolon-red.png</PackageIcon>
+	<PackageIcon>vmatch.png</PackageIcon>
 	<Description>A programming competition management system in a Valentine's Day theme.</Description>
 	<PackageReleaseNotes>Initial release of VMatch
 
@@ -36,7 +36,7 @@ Additional Features
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="Resources\vmatch.ico" />
+    <Content Include="Resources\icon-vmatch.ico" />
   </ItemGroup>
 
   <ItemGroup>
@@ -67,7 +67,7 @@ Additional Features
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
-    <None Update="Resources\icon-semicolon-red.png">
+    <None Update="Resources\vmatch.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>

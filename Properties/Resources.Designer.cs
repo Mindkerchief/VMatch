@@ -81,12 +81,12 @@ namespace VMatch.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Bitmap icon_semicolon_red {
+        internal static System.Drawing.Icon icon_vmatch {
             get {
-                object obj = ResourceManager.GetObject("icon_semicolon_red", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("icon_vmatch", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
         
@@ -101,12 +101,12 @@ namespace VMatch.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Icon vmatch {
+        internal static System.Drawing.Bitmap vmatch {
             get {
                 object obj = ResourceManager.GetObject("vmatch", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }
