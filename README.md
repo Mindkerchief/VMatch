@@ -9,14 +9,14 @@ A Windows forms application that gives question problems and lets users upload t
 
 ## Features
 ### Main Features
-![screenshot-1][start-screen] &nbsp;
-![screenshot-2][question-screen]
+![main-screen][main-screen] &nbsp;
+![problem-screen][problem-screen]
 - **Timer** - Displays the time left during competition.
 - **Riddle-Problem** - Reveals the riddles and problems to answer.
 - **Upload Solution** - Let the participant submit their solution file.
 
 ### Additionl Features
-![screenshot-3][close-prevention]
+![riddle-screen][riddle-screen]
 - **Close Prevention** - Prevents program from closing to prevent cheating.
 - **Folder Access Restriction** - Restrict participants from accessing the solution and log folder.
 - **Action/Time Log** - Records the time of starting, answering, submitting, closing and times-up in a text file.
@@ -34,16 +34,8 @@ A Windows forms application that gives question problems and lets users upload t
 > Let the participants know that they have to name their answer based on problem number before submitting.
 
 ## Installation
-### Framework Dependent
-1. Download and install the latest version of [.NET][dotnet].
-2. Go to the latest [release page][release-page] of VMatch.
-3. Download and extract `VMatch-1.0.0-framework-dependent.zip`.
-4. Open the folder and launch `VMatch.exe`.
-
-### Self-contained
-1. Go to the latest [release page][release-page] of VMatch.
-2. Download `VMatch-1.0.0-self-contained.exe`.
-3. Launch `VMatch-1.0.0-self-contained.exe`.
+1. Download the [latest version][release-page] of VMatch.
+2. Install `VMatch-1.0.0.exe`.
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
@@ -52,16 +44,18 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **[.NET][dotnet]**: For libraries and runtime.
 - **[Visual Studio 2022][visual-studio-2022]**: For development environment.
 - **[Windows Forms][windows-forms]**: For graphical user interface.
+- **[Advanced Installer][advanced-installer]**: For installer.
 
 <!-- Reference -->
 [logo-thumbnail]: https://github.com/Mindkerchief/VMatch/assets/130748576/a65c7e73-af97-4a10-8954-11e1853c02e2
 [app-badge]: https://img.shields.io/badge/Windows-Programming_Competition_Management_System-B93931
 
-[start-screen]: https://github.com/Mindkerchief/VMatch/assets/130748576/3786ca8b-3bcc-4204-ad77-4bd88894f129
-[question-screen]: https://github.com/Mindkerchief/VMatch/assets/130748576/2f1a77be-6cc3-4006-86c4-8f9c51a9d931
-[close-prevention]: https://github.com/Mindkerchief/VMatch/assets/130748576/0ae2a5ca-fb26-4cd8-bacb-f259217c1136
+[main-screen]: https://github.com/Mindkerchief/VMatch/assets/130748576/efac8a7b-9e9c-4051-a664-fed02e86f228
+[problem-screen]: https://github.com/Mindkerchief/VMatch/assets/130748576/901b8a48-d7a8-43b8-a897-4902916c6f5c
+[riddle-screen]: https://github.com/Mindkerchief/VMatch/assets/130748576/2e1121d9-2e2d-44f0-a2e7-a4711dee75d8
 
 [release-page]: https://github.com/Mindkerchief/VMatch/releases
 [dotnet]: https://dotnet.microsoft.com/en-us/download
 [visual-studio-2022]: https://learn.microsoft.com/en-us/visualstudio/ide/?view=vs-2022
 [windows-forms]: https://learn.microsoft.com/en-us/dotnet/desktop/winforms/?view=netdesktop-8.0
+[advanced-installer]: https://www.advancedinstaller.com/user-guide/using.html
