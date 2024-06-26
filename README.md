@@ -31,7 +31,7 @@ A Windows forms application that gives question problems and lets users upload t
 > The program can only be closed by entering `/close` as the answer, ending the task in Task Manager, or waiting for the time limit to expire.
 
 > [!TIP]
-> Let the participants know that they have to name their answer based on problem number before submitting.
+> Let the participants know that solution filename must be based on problem number before uploading.
 
 ## Installation
 1. Download the [latest version][release-page] of VMatch.
