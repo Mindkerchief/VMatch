@@ -45,7 +45,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 <!-- Reference -->
 [vmatch-thumbnail]: https://github.com/Mindkerchief/VMatch/assets/130748576/c873fee9-611d-4b7c-ac9f-6e61c0fac6a5
-[vmatch-badge]: https://img.shields.io/badge/Windows-Programming_Competition_Management_System-B93931
+[vmatch-badge]: https://img.shields.io/badge/Windows-Programming_Competition_Management-B93931
 
 [main-screen]: https://github.com/Mindkerchief/VMatch/assets/130748576/efac8a7b-9e9c-4051-a664-fed02e86f228
 [problem-screen]: https://github.com/Mindkerchief/VMatch/assets/130748576/901b8a48-d7a8-43b8-a897-4902916c6f5c
