@@ -1,4 +1,4 @@
-# ![vmatch-thumbnail][vmatch-thumbnail] VMatch ![vmatch-badge][vmatch-badge]
+# ![vmatch thumbnail][vmatch-thumbnail] VMatch ![vmatch badge][vmatch-badge]
 A Windows forms application that gives question problems and lets users upload their solution files. The questions are composed of riddles that reveal a programming problem when solved. A timer is active during the runtime and records every action performed by the participants. This program is used for programming competitions with a theme of Valentine's Day.
 
 ## Table of Contents
@@ -9,14 +9,14 @@ A Windows forms application that gives question problems and lets users upload t
 
 ## Features
 ### Main Features
-![main-screen][main-screen] &nbsp;
-![problem-screen][problem-screen]
+![main screen][main-screen] &nbsp;
+![problem screen][problem-screen]
 - **Timer** - Displays the time left during competition.
 - **Riddle-Problem** - Reveals the riddles and problems to answer.
 - **Upload Solution** - Let the participant submit their solution file.
 
 ### Additionl Features
-![riddle-screen][riddle-screen]
+![riddle screen][riddle-screen]
 - **Close Prevention** - Prevents program from closing to prevent cheating.
 - **Folder Access Restriction** - Restrict participants from accessing the solution and log folder.
 - **Action/Time Log** - Records the time of starting, answering, submitting, closing and times-up in a text file.
