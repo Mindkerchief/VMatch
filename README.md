@@ -27,18 +27,14 @@ A Windows forms application that gives question problems and lets users upload t
 > [!TIP]
 > The program can only be closed by entering `/close` as the answer, ending the task in Task Manager, or waiting for the time limit to expire.
 
-> [!TIP]
-> Let the participants know that solution filename must be based on problem number before uploading.
-
 ## Installation
-1. Download the [latest version][release-page] of VMatch.
-2. Install `VMatch-1.0.0.exe`.
+1. Download the latest version of [VMatch][release-page].
+2. Install [VMatch-1.0.0.exe][latest-release].
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
-- **[.NET][dotnet]**: For libraries and runtime.
 - **[Visual Studio 2022][visual-studio-2022]**: For development environment.
 - **[Windows Forms][windows-forms]**: For graphical user interface.
 - **[Advanced Installer][advanced-installer]**: For installer.
@@ -52,7 +48,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 [riddle-screen]: https://github.com/Mindkerchief/VMatch/assets/130748576/2e1121d9-2e2d-44f0-a2e7-a4711dee75d8
 
 [release-page]: https://github.com/Mindkerchief/VMatch/releases
-[dotnet]: https://dotnet.microsoft.com/en-us/download
+[latest-release]: https://github.com/Mindkerchief/VMatch/releases/download/v1.0.0/VMatch-1.0.0.exe
 [visual-studio-2022]: https://learn.microsoft.com/en-us/visualstudio/ide/?view=vs-2022
 [windows-forms]: https://learn.microsoft.com/en-us/dotnet/desktop/winforms/?view=netdesktop-8.0
 [advanced-installer]: https://www.advancedinstaller.com/user-guide/using.html
