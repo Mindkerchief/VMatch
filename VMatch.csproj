@@ -28,9 +28,6 @@ Additional Features
 - Close Prevention - Prevents program from closing to prevent cheating.
 - Folder Access Restriction - Restrict participants from accessing the solution and log folder.
 - Action/Time Log - Records the time of starting, answering, submitting, closing and times-up in a text file.</PackageReleaseNotes>
-	<NeutralLanguage>en-PH</NeutralLanguage>
-	<FileVersion>1.0.0.0</FileVersion>
-	<AssemblyVersion>1.0.0.0</AssemblyVersion>
 	<PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
 
