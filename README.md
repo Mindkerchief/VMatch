@@ -1,5 +1,5 @@
 # ![vmatch thumbnail][vmatch-thumbnail] VMatch ![vmatch badge][vmatch-badge]
-A Windows forms application that gives question problems and lets users upload their solution files. The questions are composed of riddles that reveal a programming problem when solved. A timer is active during the runtime and records every action performed by the participants. This program is used for programming competitions with a theme of Valentine's Day.
+A Windows application that facilitates programming problems for a competition and lets users upload the source code of their solution. The questions are composed of riddles that reveal a programming problem when solved. A timer is active during the runtime and records every action performed by the participants. This program is used for programming competitions with a Valentine's Day theme.
 
 ## Table of Contents
 - [Features](#features)
@@ -28,27 +28,23 @@ A Windows forms application that gives question problems and lets users upload t
 > The program can only be closed by entering `/close` as the answer, ending the task in Task Manager, or waiting for the time limit to expire.
 
 ## Installation
-1. Download the latest version of [VMatch][release-page].
-2. Install [VMatch-1.0.0.exe][latest-release].
+1. Download and install the latest version of [VMatch][release-page].
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
-- **[Visual Studio 2022][visual-studio-2022]**: For development environment.
-- **[Windows Forms][windows-forms]**: For graphical user interface.
+- **[Windows Forms][windows-forms]**: For GUI.
 - **[Advanced Installer][advanced-installer]**: For installer.
 
 <!-- Reference -->
 [vmatch-thumbnail]: https://github.com/Mindkerchief/VMatch/assets/130748576/c873fee9-611d-4b7c-ac9f-6e61c0fac6a5
-[vmatch-badge]: https://img.shields.io/badge/Windows-Programming_Competition_Management-B93931
+[vmatch-badge]: https://img.shields.io/badge/Windows-Programming_Competition_Client-B93931
 
 [main-screen]: https://github.com/Mindkerchief/VMatch/assets/130748576/efac8a7b-9e9c-4051-a664-fed02e86f228
 [problem-screen]: https://github.com/Mindkerchief/VMatch/assets/130748576/901b8a48-d7a8-43b8-a897-4902916c6f5c
 [riddle-screen]: https://github.com/Mindkerchief/VMatch/assets/130748576/2e1121d9-2e2d-44f0-a2e7-a4711dee75d8
 
 [release-page]: https://github.com/Mindkerchief/VMatch/releases
-[latest-release]: https://github.com/Mindkerchief/VMatch/releases/download/v1.0.0/VMatch-1.0.0.exe
-[visual-studio-2022]: https://learn.microsoft.com/en-us/visualstudio/ide/?view=vs-2022
 [windows-forms]: https://learn.microsoft.com/en-us/dotnet/desktop/winforms/?view=netdesktop-8.0
 [advanced-installer]: https://www.advancedinstaller.com/user-guide/using.html
